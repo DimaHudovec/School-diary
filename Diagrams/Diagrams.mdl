@@ -11,7 +11,43 @@
 	(object Attribute
 	    tool       	"Java"
 	    name       	"IDE"
-	    value      	"Internal Editor"))
+	    value      	"Internal Editor")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagName1"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagText1"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagApply1"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagName2"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagText2"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagApply2"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagName3"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagText3"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagApply3"
+	    value      	""))
     quid       	"580CBE850205"
     enforceClosureAutoLoad 	FALSE
     defaults   	(object defaults
@@ -60,8 +96,800 @@
 |- выбрать вкладку просмотр расписание 
 |- выбрать дату занятие по календарю
 |
-		)
-	    (object UseCase "Просмотр расписание звонков"
+		
+		statemachine 	(object State_Machine "State/Activity Model5"
+		    quid       	"580E2E010214"
+		    states     	(list States
+			(object State "$UNNAMED$0"
+			    quid       	"580E2E1D0038"
+			    type       	"StartState")
+			(object ActivityState "Выбор вкладки с расписание предметов"
+			    quid       	"580E2E200040")
+			(object ActivityState "Отображение расписания прдметов"
+			    quid       	"580E2E2700B2")
+			(object State "$UNNAMED$1"
+			    quid       	"580E2E2A0118"
+			    type       	"EndState"))
+		    partitions 	(list Partitions
+			(object Partition "Пользователь"
+			    quid       	"580E2E0501D4"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Partition "GUI"
+			    quid       	"580E2E060216"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE))
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"580E2E2F0132"
+			    supplier   	"Use Case View::Просмотр расписания занятий::State/Activity Model5::Выбор вкладки с расписание предметов"
+			    supplier_quidu 	"580E2E200040"
+			    client     	"$UNNAMED$0"
+			    client_quidu 	"580E2E1D0038"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2E2F0135"))
+			(object State_Transition
+			    quid       	"580E2E5E02BB"
+			    supplier   	"Use Case View::Просмотр расписания занятий::State/Activity Model5::Отображение расписания прдметов"
+			    supplier_quidu 	"580E2E2700B2"
+			    client     	"Use Case View::Просмотр расписания занятий::State/Activity Model5::Выбор вкладки с расписание предметов"
+			    client_quidu 	"580E2E200040"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2E5E02BE"))
+			(object State_Transition
+			    quid       	"580E2E650194"
+			    supplier   	"$UNNAMED$1"
+			    supplier_quidu 	"580E2E2A0118"
+			    client     	"Use Case View::Просмотр расписания занятий::State/Activity Model5::Отображение расписания прдметов"
+			    client_quidu 	"580E2E2700B2"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2E650197")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "NewDiagram11"
+			    quid       	"580E2E010223"
+			    title      	"NewDiagram11"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "Пользователь" @1
+				    line_color 	3342489
+				    quidu      	"580E2E0501D4"
+				    width      	736)
+				(object StateView "StartState" "$UNNAMED$0" @2
+				    Parent_View 	@1
+				    location   	(364, 114)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E2E1D0038"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор вкладки с расписание предметов" @3
+				    Parent_View 	@1
+				    location   	(368, 345)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@3
+					location   	(368, 348)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	510
+					justify    	0
+					label      	"Выбор вкладки с расписание предметов")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2E200040"
+				    width      	616
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object Swimlane "GUI" @4
+				    location   	(736, 0)
+				    line_color 	3342489
+				    quidu      	"580E2E060216"
+				    width      	676)
+				(object ActivityStateView "Отображение расписания прдметов" @5
+				    Parent_View 	@4
+				    location   	(1068, 553)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@5
+					location   	(1068, 556)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	420
+					justify    	0
+					label      	"Отображение расписания прдметов")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2E2700B2"
+				    width      	526
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object StateView "EndState" "$UNNAMED$1" @6
+				    Parent_View 	@4
+				    location   	(1070, 820)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E2E2A0118"
+				    autoResize 	TRUE)
+				(object Swimlane "" @7
+				    location   	(1412, 0)
+				    line_color 	3342489
+				    width      	450)
+				(object TransView "" @8
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2E2F0132"
+				    client     	@2
+				    supplier   	@3
+				    vertices   	(list Points
+					(364, 143)
+					(367, 291))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @9
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2E5E02BB"
+				    client     	@3
+				    supplier   	@5
+				    vertices   	(list Points
+					(630, 344)
+					(1069, 344)
+					(1068, 500))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @10
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2E650194"
+				    client     	@5
+				    supplier   	@6
+				    vertices   	(list Points
+					(1068, 605)
+					(1069, 778))
+				    line_style 	0
+				    x_offset   	FALSE)))))
+		logical_models 	(list unit_reference_list
+		    (object Mechanism @11
+			logical_models 	(list unit_reference_list
+			    (object Object "Пользователь"
+				quid       	"580E192F0277"
+				collaborators 	(list link_list
+				    (object Link
+					quid       	"580E192F0278"
+					supplier   	"GUI"
+					quidu      	"580E192F0282"
+					messages   	(list Messages
+					    (object Message "Выбор вкладки с рассписанием предметов"
+						quid       	"580E192F0279"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"1"
+						ordinal    	0
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Отображение расписания"
+						quid       	"580E192F027B"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"1.2"
+						ordinal    	3
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Выбор даты занятия"
+						quid       	"580E192F027D"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"2"
+						ordinal    	4
+						quidu      	"000000000000"
+						creation   	FALSE))))
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE)
+			    (object Object "GUI"
+				quid       	"580E192F0282"
+				collaborators 	(list link_list
+				    (object Link
+					quid       	"580E192F0281"
+					supplier   	"База данных"
+					quidu      	"580E192F0291"
+					messages   	(list Messages
+					    (object Message "Получить расписание предметов"
+						quid       	"580E192F0280"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"1.1"
+						ordinal    	1
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Рассписание предметов "
+						quid       	"580E192F0285"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"1.1.1"
+						ordinal    	2
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Получить расписание предметов"
+						quid       	"580E192F0287"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"2.1"
+						ordinal    	5
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Рассписание предметов "
+						quid       	"580E192F0288"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"2.1.1"
+						ordinal    	6
+						quidu      	"000000000000"
+						creation   	FALSE)))
+				    (object Link
+					quid       	"580E192F0283"
+					supplier   	"Пользователь"
+					quidu      	"580E192F0277"
+					messages   	(list Messages
+					    (object Message "Отображение расписания"
+						quid       	"580E192F0284"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"FromClientToSupplier"
+						sequence   	"2.2"
+						ordinal    	7
+						quidu      	"000000000000"
+						creation   	FALSE))))
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE)
+			    (object Object "База данных"
+				quid       	"580E192F0291"
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE))))
+		logical_presentations 	(list unit_reference_list
+		    (object InteractionDiagram "NewDiagram5"
+			mechanism_ref 	@11
+			quid       	"580E192B0247"
+			title      	"NewDiagram5"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object InterObjView "Пользователь" @12
+				location   	(334, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@12
+				    location   	(334, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"Пользователь")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E192F0277"
+				width      	300
+				height     	1173
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @13
+				    location   	(334, 440)
+				    line_color 	3342489
+				    InterObjView 	@12
+				    height     	868
+				    y_coord    	778
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @14
+				    location   	(334, 755)
+				    line_color 	3342489
+				    InterObjView 	@12
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @15
+				    location   	(334, 1175)
+				    line_color 	3342489
+				    InterObjView 	@12
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE))
+			    (object InterObjView "GUI" @16
+				location   	(1268, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@16
+				    location   	(1268, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"GUI")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E192F0282"
+				width      	300
+				height     	1173
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @17
+				    location   	(1268, 440)
+				    line_color 	3342489
+				    InterObjView 	@16
+				    height     	315
+				    y_coord    	225
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @18
+				    location   	(1268, 650)
+				    line_color 	3342489
+				    InterObjView 	@16
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @19
+				    location   	(1268, 860)
+				    line_color 	3342489
+				    InterObjView 	@16
+				    height     	315
+				    y_coord    	225
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @20
+				    location   	(1268, 1070)
+				    line_color 	3342489
+				    InterObjView 	@16
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE))
+			    (object InterObjView "База данных" @21
+				location   	(2104, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@21
+				    location   	(2104, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"База данных")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E192F0291"
+				width      	300
+				height     	1173
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @22
+				    location   	(2104, 545)
+				    line_color 	3342489
+				    InterObjView 	@21
+				    height     	195
+				    y_coord    	105
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @23
+				    location   	(2104, 965)
+				    line_color 	3342489
+				    InterObjView 	@21
+				    height     	105
+				    y_coord    	15
+				    Nested     	FALSE))
+			    (object InterMessView "Выбор вкладки с рассписанием предметов" @24
+				location   	(0, 440)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @25
+				    Parent_View 	@24
+				    location   	(800, 396)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E192F0279"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	870
+				    justify    	0
+				    label      	"Выбор вкладки с рассписанием предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@12
+				supplier   	@16
+				Focus_Src  	@13
+				Focus_Entry 	@17
+				origin     	(349, 440)
+				terminus   	(1252, 440)
+				ordinal    	0)
+			    (object InterMessView "Получить расписание предметов" @26
+				location   	(0, 545)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @27
+				    Parent_View 	@26
+				    location   	(1685, 501)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E192F0280"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	672
+				    justify    	0
+				    label      	"Получить расписание предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@16
+				supplier   	@21
+				Focus_Src  	@17
+				Focus_Entry 	@22
+				origin     	(1283, 545)
+				terminus   	(2088, 545)
+				ordinal    	1)
+			    (object InterMessView "Рассписание предметов " @28
+				location   	(0, 650)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @29
+				    Parent_View 	@28
+				    location   	(1686, 606)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E192F0285"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	516
+				    justify    	0
+				    label      	"Рассписание предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@21
+				supplier   	@16
+				Focus_Src  	@22
+				Focus_Entry 	@18
+				origin     	(2088, 650)
+				terminus   	(1284, 650)
+				ordinal    	2)
+			    (object InterMessView "Отображение расписания" @30
+				location   	(0, 755)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @31
+				    Parent_View 	@30
+				    location   	(801, 711)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E192F027B"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	538
+				    justify    	0
+				    label      	"Отображение расписания"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@16
+				supplier   	@12
+				Focus_Src  	@17
+				Focus_Entry 	@14
+				origin     	(1252, 755)
+				terminus   	(350, 755)
+				ordinal    	3)
+			    (object InterMessView "Выбор даты занятия" @32
+				location   	(0, 860)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @33
+				    Parent_View 	@32
+				    location   	(800, 816)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E192F027D"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	438
+				    justify    	0
+				    label      	"Выбор даты занятия"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@12
+				supplier   	@16
+				Focus_Src  	@13
+				Focus_Entry 	@19
+				origin     	(349, 860)
+				terminus   	(1252, 860)
+				ordinal    	4)
+			    (object InterMessView "Получить расписание предметов" @34
+				location   	(0, 965)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @35
+				    Parent_View 	@34
+				    location   	(1685, 921)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E192F0287"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	672
+				    justify    	0
+				    label      	"Получить расписание предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@16
+				supplier   	@21
+				Focus_Src  	@19
+				Focus_Entry 	@23
+				origin     	(1283, 965)
+				terminus   	(2088, 965)
+				ordinal    	5)
+			    (object InterMessView "Рассписание предметов " @36
+				location   	(0, 1070)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @37
+				    Parent_View 	@36
+				    location   	(1686, 1026)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E192F0288"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	516
+				    justify    	0
+				    label      	"Рассписание предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@21
+				supplier   	@16
+				Focus_Src  	@23
+				Focus_Entry 	@20
+				origin     	(2088, 1070)
+				terminus   	(1284, 1070)
+				ordinal    	6)
+			    (object InterMessView "Отображение расписания" @38
+				location   	(0, 1175)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @39
+				    Parent_View 	@38
+				    location   	(801, 1131)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E192F0284"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	531
+				    justify    	0
+				    label      	"Отображение расписания"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@16
+				supplier   	@12
+				Focus_Src  	@19
+				Focus_Entry 	@15
+				origin     	(1252, 1175)
+				terminus   	(350, 1175)
+				ordinal    	7)))))
+	    (object UseCase "Просмотр расписания звонков"
 		quid       	"580CC017015F"
 		documentation 	
 |1, Краткое описание
@@ -71,7 +899,566 @@
 |3, Основной поток событий
 |- выбрать вкладку просмотр расписания звонков
 |
-		)
+		
+		statemachine 	(object State_Machine "State/Activity Model4"
+		    quid       	"580E2D5902DD"
+		    states     	(list States
+			(object State "$UNNAMED$2"
+			    quid       	"580E2D8D0084"
+			    type       	"StartState")
+			(object ActivityState "Выбор вкладки с расписание звонков"
+			    quid       	"580E2D8F03C4")
+			(object ActivityState "Отображение расписания звонков"
+			    quid       	"580E2D930042")
+			(object State "$UNNAMED$3"
+			    quid       	"580E2DA50373"
+			    type       	"EndState"))
+		    partitions 	(list Partitions
+			(object Partition "Пользователь"
+			    quid       	"580E2D730035"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Partition "GUI"
+			    quid       	"580E2D7303CD"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE))
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"580E2D9D009C"
+			    supplier   	"Use Case View::Просмотр расписания звонков::State/Activity Model4::Выбор вкладки с расписание звонков"
+			    supplier_quidu 	"580E2D8F03C4"
+			    client     	"$UNNAMED$2"
+			    client_quidu 	"580E2D8D0084"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2D9D009F"))
+			(object State_Transition
+			    quid       	"580E2DA102BB"
+			    supplier   	"Use Case View::Просмотр расписания звонков::State/Activity Model4::Отображение расписания звонков"
+			    supplier_quidu 	"580E2D930042"
+			    client     	"Use Case View::Просмотр расписания звонков::State/Activity Model4::Выбор вкладки с расписание звонков"
+			    client_quidu 	"580E2D8F03C4"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2DA102BE"))
+			(object State_Transition
+			    quid       	"580E2DAA0175"
+			    supplier   	"$UNNAMED$3"
+			    supplier_quidu 	"580E2DA50373"
+			    client     	"Use Case View::Просмотр расписания звонков::State/Activity Model4::Отображение расписания звонков"
+			    client_quidu 	"580E2D930042"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2DAA0178")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "NewDiagram10"
+			    quid       	"580E2D5902E1"
+			    title      	"NewDiagram10"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "Пользователь" @40
+				    line_color 	3342489
+				    quidu      	"580E2D730035"
+				    width      	928)
+				(object StateView "StartState" "$UNNAMED$2" @41
+				    Parent_View 	@40
+				    location   	(430, 119)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E2D8D0084"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор вкладки с расписание звонков" @42
+				    Parent_View 	@40
+				    location   	(428, 398)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@42
+					location   	(428, 401)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	426
+					justify    	0
+					label      	"Выбор вкладки с расписание звонков")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2D8F03C4"
+				    width      	532
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @43
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2D9D009C"
+				    client     	@41
+				    supplier   	@42
+				    vertices   	(list Points
+					(429, 149)
+					(428, 345))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object Swimlane "GUI" @44
+				    location   	(928, 0)
+				    line_color 	3342489
+				    quidu      	"580E2D7303CD"
+				    width      	1070)
+				(object ActivityStateView "Отображение расписания звонков" @45
+				    Parent_View 	@44
+				    location   	(1515, 597)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@45
+					location   	(1515, 600)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	400
+					justify    	0
+					label      	"Отображение расписания звонков")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2D930042"
+				    width      	506
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object StateView "EndState" "$UNNAMED$3" @46
+				    Parent_View 	@44
+				    location   	(1516, 883)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E2DA50373"
+				    autoResize 	TRUE)
+				(object Swimlane "" @47
+				    location   	(1998, 0)
+				    line_color 	3342489
+				    width      	450)
+				(object TransView "" @48
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2DAA0175"
+				    client     	@45
+				    supplier   	@46
+				    vertices   	(list Points
+					(1515, 649)
+					(1515, 841))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @49
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2DA102BB"
+				    client     	@42
+				    supplier   	@45
+				    vertices   	(list Points
+					(658, 397)
+					(1515, 397)
+					(1515, 544))
+				    line_style 	0
+				    x_offset   	FALSE)))))
+		logical_models 	(list unit_reference_list
+		    (object Mechanism @50
+			logical_models 	(list unit_reference_list
+			    (object Object "Пользователь"
+				quid       	"580E18D30188"
+				collaborators 	(list link_list
+				    (object Link
+					quid       	"580E18D30189"
+					supplier   	"GUI"
+					quidu      	"580E18D30193"
+					messages   	(list Messages
+					    (object Message "Выбор вкладки с рассписанием звонков"
+						quid       	"580E18D3018A"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"1"
+						ordinal    	0
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Отображение расписания"
+						quid       	"580E18D3018C"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"1.2"
+						ordinal    	3
+						quidu      	"000000000000"
+						creation   	FALSE))))
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE)
+			    (object Object "GUI"
+				quid       	"580E18D30193"
+				collaborators 	(list link_list
+				    (object Link
+					quid       	"580E18D30192"
+					supplier   	"База данных"
+					quidu      	"580E18D301A2"
+					messages   	(list Messages
+					    (object Message "Получить расписание звонков"
+						quid       	"580E18D30191"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"1.1"
+						ordinal    	1
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Рассписание звонков"
+						quid       	"580E18D30196"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"1.1.1"
+						ordinal    	2
+						quidu      	"000000000000"
+						creation   	FALSE)))
+				    (object Link
+					quid       	"580E18D30194"
+					supplier   	"Пользователь"
+					quidu      	"580E18D30188"))
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE)
+			    (object Object "База данных"
+				quid       	"580E18D301A2"
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE))))
+		logical_presentations 	(list unit_reference_list
+		    (object InteractionDiagram "NewDiagram4"
+			mechanism_ref 	@50
+			quid       	"580E18CF0284"
+			title      	"NewDiagram4"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object InterObjView "Пользователь" @51
+				location   	(334, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@51
+				    location   	(334, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"Пользователь")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E18D30188"
+				width      	300
+				height     	720
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @52
+				    location   	(334, 440)
+				    line_color 	3342489
+				    InterObjView 	@51
+				    height     	415
+				    y_coord    	325
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @53
+				    location   	(334, 755)
+				    line_color 	3342489
+				    InterObjView 	@51
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE))
+			    (object InterObjView "GUI" @54
+				location   	(1268, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@54
+				    location   	(1268, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"GUI")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E18D30193"
+				width      	300
+				height     	720
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @55
+				    location   	(1268, 440)
+				    line_color 	3342489
+				    InterObjView 	@54
+				    height     	315
+				    y_coord    	225
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @56
+				    location   	(1268, 650)
+				    line_color 	3342489
+				    InterObjView 	@54
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE))
+			    (object InterObjView "База данных" @57
+				location   	(2104, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@57
+				    location   	(2104, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"База данных")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E18D301A2"
+				width      	300
+				height     	720
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @58
+				    location   	(2104, 545)
+				    line_color 	3342489
+				    InterObjView 	@57
+				    height     	195
+				    y_coord    	105
+				    Nested     	FALSE))
+			    (object InterMessView "Выбор вкладки с рассписанием звонков" @59
+				location   	(0, 440)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @60
+				    Parent_View 	@59
+				    location   	(800, 396)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E18D3018A"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	818
+				    justify    	0
+				    label      	"Выбор вкладки с рассписанием звонков"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@51
+				supplier   	@54
+				Focus_Src  	@52
+				Focus_Entry 	@55
+				origin     	(349, 440)
+				terminus   	(1252, 440)
+				ordinal    	0)
+			    (object InterMessView "Получить расписание звонков" @61
+				location   	(0, 545)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @62
+				    Parent_View 	@61
+				    location   	(1685, 501)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E18D30191"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	625
+				    justify    	0
+				    label      	"Получить расписание звонков"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@54
+				supplier   	@57
+				Focus_Src  	@55
+				Focus_Entry 	@58
+				origin     	(1283, 545)
+				terminus   	(2088, 545)
+				ordinal    	1)
+			    (object InterMessView "Рассписание звонков" @63
+				location   	(0, 650)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @64
+				    Parent_View 	@63
+				    location   	(1686, 606)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E18D30196"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	463
+				    justify    	0
+				    label      	"Рассписание звонков"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@57
+				supplier   	@54
+				Focus_Src  	@58
+				Focus_Entry 	@56
+				origin     	(2088, 650)
+				terminus   	(1284, 650)
+				ordinal    	2)
+			    (object InterMessView "Отображение расписания" @65
+				location   	(0, 755)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @66
+				    Parent_View 	@65
+				    location   	(801, 711)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E18D3018C"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	540
+				    justify    	0
+				    label      	"Отображение расписания"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@54
+				supplier   	@51
+				Focus_Src  	@55
+				Focus_Entry 	@53
+				origin     	(1252, 755)
+				terminus   	(350, 755)
+				ordinal    	3)))))
 	    (object UseCase "Записать домашнее задание"
 		quid       	"580CC01C02E4"
 		documentation 	
@@ -88,7 +1475,1296 @@
 |4, Постусловия
 |- домашнее задание сохраняется в базу данных
 |- обновляется домашнее задание во вкладке "Рассписание занятий"
-		)
+		
+		statemachine 	(object State_Machine "State/Activity Model3"
+		    quid       	"580E2629014A"
+		    states     	(list States
+			(object State "$UNNAMED$4"
+			    quid       	"580E265600A0"
+			    type       	"StartState")
+			(object ActivityState "Выбор вклаки расписания предметов"
+			    quid       	"580E265903D0")
+			(object ActivityState "Отображение сегодняшнего расписания"
+			    quid       	"580E265C02D3")
+			(object ActivityState "Выбор даты для записи"
+			    quid       	"580E266400D2")
+			(object ActivityState "Отображения расписания с нужной датой"
+			    quid       	"580E266B017C")
+			(object ActivityState "Запись домашнего задания по нужному предмету"
+			    quid       	"580E266E0129")
+			(object ActivityState "Сохранение домашнего зпдания в базу"
+			    quid       	"580E2C2801AF")
+			(object State "$UNNAMED$5"
+			    quid       	"580E2C46012B"
+			    type       	"EndState"))
+		    partitions 	(list Partitions
+			(object Partition "Пользователь"
+			    quid       	"580E2633006E"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Partition "GUI"
+			    quid       	"580E263400F8"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE))
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"580E2C4901C3"
+			    supplier   	"Use Case View::Записать домашнее задание::State/Activity Model3::Выбор вклаки расписания предметов"
+			    supplier_quidu 	"580E265903D0"
+			    client     	"$UNNAMED$4"
+			    client_quidu 	"580E265600A0"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2C4901C6"))
+			(object State_Transition
+			    quid       	"580E2C54016D"
+			    supplier   	"Use Case View::Записать домашнее задание::State/Activity Model3::Отображение сегодняшнего расписания"
+			    supplier_quidu 	"580E265C02D3"
+			    client     	"Use Case View::Записать домашнее задание::State/Activity Model3::Выбор вклаки расписания предметов"
+			    client_quidu 	"580E265903D0"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2C540170"))
+			(object State_Transition
+			    quid       	"580E2C5A010E"
+			    supplier   	"Use Case View::Записать домашнее задание::State/Activity Model3::Выбор даты для записи"
+			    supplier_quidu 	"580E266400D2"
+			    client     	"Use Case View::Записать домашнее задание::State/Activity Model3::Отображение сегодняшнего расписания"
+			    client_quidu 	"580E265C02D3"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2C5A0111"))
+			(object State_Transition
+			    quid       	"580E2C5E0005"
+			    supplier   	"Use Case View::Записать домашнее задание::State/Activity Model3::Отображения расписания с нужной датой"
+			    supplier_quidu 	"580E266B017C"
+			    client     	"Use Case View::Записать домашнее задание::State/Activity Model3::Выбор даты для записи"
+			    client_quidu 	"580E266400D2"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2C5E0008"))
+			(object State_Transition
+			    quid       	"580E2C610298"
+			    supplier   	"Use Case View::Записать домашнее задание::State/Activity Model3::Запись домашнего задания по нужному предмету"
+			    supplier_quidu 	"580E266E0129"
+			    client     	"Use Case View::Записать домашнее задание::State/Activity Model3::Отображения расписания с нужной датой"
+			    client_quidu 	"580E266B017C"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2C61029B"))
+			(object State_Transition
+			    quid       	"580E2C670000"
+			    supplier   	"Use Case View::Записать домашнее задание::State/Activity Model3::Сохранение домашнего зпдания в базу"
+			    supplier_quidu 	"580E2C2801AF"
+			    client     	"Use Case View::Записать домашнее задание::State/Activity Model3::Запись домашнего задания по нужному предмету"
+			    client_quidu 	"580E266E0129"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2C670003"))
+			(object State_Transition
+			    quid       	"580E2C6B00BA"
+			    supplier   	"$UNNAMED$5"
+			    supplier_quidu 	"580E2C46012B"
+			    client     	"Use Case View::Записать домашнее задание::State/Activity Model3::Сохранение домашнего зпдания в базу"
+			    client_quidu 	"580E2C2801AF"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2C6B00BD")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "NewDiagram9"
+			    quid       	"580E26290159"
+			    title      	"NewDiagram9"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "Пользователь" @67
+				    line_color 	3342489
+				    quidu      	"580E2633006E"
+				    width      	804)
+				(object StateView "StartState" "$UNNAMED$4" @68
+				    Parent_View 	@67
+				    location   	(387, 142)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E265600A0"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор вклаки расписания предметов" @69
+				    Parent_View 	@67
+				    location   	(389, 356)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@69
+					location   	(389, 359)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	436
+					justify    	0
+					label      	"Выбор вклаки расписания предметов")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E265903D0"
+				    width      	542
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор даты для записи" @70
+				    Parent_View 	@67
+				    location   	(384, 696)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@70
+					location   	(384, 699)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Выбор даты для записи")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E266400D2"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Запись домашнего задания по нужному предмету" @71
+				    Parent_View 	@67
+				    location   	(402, 1092)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@71
+					location   	(402, 1095)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	576
+					justify    	0
+					label      	"Запись домашнего задания по нужному предмету")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E266E0129"
+				    width      	682
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object Swimlane "GUI" @72
+				    location   	(804, 0)
+				    line_color 	3342489
+				    quidu      	"580E263400F8"
+				    width      	954)
+				(object ActivityStateView "Отображение сегодняшнего расписания" @73
+				    Parent_View 	@72
+				    location   	(1294, 500)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@73
+					location   	(1294, 503)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	540
+					justify    	0
+					label      	"Отображение сегодняшнего расписания")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E265C02D3"
+				    width      	646
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Отображения расписания с нужной датой" @74
+				    Parent_View 	@72
+				    location   	(1291, 889)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@74
+					location   	(1291, 892)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	478
+					justify    	0
+					label      	"Отображения расписания с нужной датой")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E266B017C"
+				    width      	584
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Сохранение домашнего зпдания в базу" @75
+				    Parent_View 	@72
+				    location   	(1287, 1300)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@75
+					location   	(1287, 1303)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	468
+					justify    	0
+					label      	"Сохранение домашнего зпдания в базу")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2C2801AF"
+				    width      	574
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object StateView "EndState" "$UNNAMED$5" @76
+				    Parent_View 	@72
+				    location   	(1289, 1564)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E2C46012B"
+				    autoResize 	TRUE)
+				(object Swimlane "" @77
+				    location   	(1758, 0)
+				    line_color 	3342489
+				    width      	450)
+				(object TransView "" @78
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2C4901C3"
+				    client     	@68
+				    supplier   	@69
+				    vertices   	(list Points
+					(387, 171)
+					(388, 302))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @79
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2C670000"
+				    client     	@71
+				    supplier   	@75
+				    vertices   	(list Points
+					(401, 1144)
+					(400, 1300)
+					(1041, 1300))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @80
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2C6B00BA"
+				    client     	@75
+				    supplier   	@76
+				    vertices   	(list Points
+					(1287, 1352)
+					(1288, 1521))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @81
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2C54016D"
+				    client     	@69
+				    supplier   	@73
+				    vertices   	(list Points
+					(623, 356)
+					(1291, 356)
+					(1292, 447))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @82
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2C5E0005"
+				    client     	@70
+				    supplier   	@74
+				    vertices   	(list Points
+					(384, 749)
+					(384, 888)
+					(1040, 888))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @83
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2C610298"
+				    client     	@74
+				    supplier   	@71
+				    vertices   	(list Points
+					(1291, 942)
+					(1291, 1091)
+					(688, 1091))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @84
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2C5A010E"
+				    client     	@73
+				    supplier   	@70
+				    vertices   	(list Points
+					(1294, 553)
+					(1294, 697)
+					(555, 696))
+				    line_style 	0
+				    x_offset   	FALSE)))))
+		logical_models 	(list unit_reference_list
+		    (object Mechanism @85
+			logical_models 	(list unit_reference_list
+			    (object Object "Пользователь"
+				quid       	"580E156E000C"
+				collaborators 	(list link_list
+				    (object Link
+					quid       	"580E156E000D"
+					supplier   	"GUI"
+					quidu      	"580E156E001C"
+					messages   	(list Messages
+					    (object Message "Выбор вкладки с рассписанием предметов"
+						quid       	"580E156E000E"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"1"
+						ordinal    	0
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Отображение расписания"
+						quid       	"580E156E0010"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"1.2"
+						ordinal    	3
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Выбор даты занятия"
+						quid       	"580E184D0126"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"2"
+						ordinal    	4
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Выбор предмета"
+						quid       	"580E156E0012"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"3"
+						ordinal    	8
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Отображение клавиатуры "
+						quid       	"580E156E0014"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"3.1"
+						ordinal    	9
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Ввод домашнего задания"
+						quid       	"580E156E0016"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"4"
+						ordinal    	10
+						quidu      	"000000000000"
+						creation   	FALSE))))
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE)
+			    (object Object "GUI"
+				quid       	"580E156E001C"
+				collaborators 	(list link_list
+				    (object Link
+					quid       	"580E156E001B"
+					supplier   	"База данных"
+					quidu      	"580E156E002D"
+					messages   	(list Messages
+					    (object Message "Получить расписание предметов"
+						quid       	"580E156E001A"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"1.1"
+						ordinal    	1
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Рассписание предметов "
+						quid       	"580E156E0020"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"1.1.1"
+						ordinal    	2
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Получить расписание предметов"
+						quid       	"580E18530214"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"2.1"
+						ordinal    	5
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Рассписание предметов "
+						quid       	"580E18590108"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"2.1.1"
+						ordinal    	6
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Сохранение домашнего задания"
+						quid       	"580E156E0022"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"4.1"
+						ordinal    	11
+						quidu      	"000000000000"
+						creation   	FALSE)))
+				    (object Link
+					quid       	"580E156E001D"
+					supplier   	"Пользователь"
+					quidu      	"580E156E000C"
+					messages   	(list Messages
+					    (object Message "Отображение расписания"
+						quid       	"580E185F030D"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"FromClientToSupplier"
+						sequence   	"2.2"
+						ordinal    	7
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Возвращение к расписанию"
+						quid       	"580E156E001E"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"FromClientToSupplier"
+						sequence   	"4.2"
+						ordinal    	12
+						quidu      	"000000000000"
+						creation   	FALSE))))
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE)
+			    (object Object "База данных"
+				quid       	"580E156E002D"
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE))))
+		logical_presentations 	(list unit_reference_list
+		    (object InteractionDiagram "NewDiagram3"
+			mechanism_ref 	@85
+			quid       	"580E153B00E5"
+			title      	"NewDiagram3"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	225
+			items      	(list diagram_item_list
+			    (object InterObjView "Пользователь" @86
+				location   	(334, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@86
+				    location   	(334, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"Пользователь")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E156E000C"
+				width      	300
+				height     	1718
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @87
+				    location   	(334, 440)
+				    line_color 	3342489
+				    InterObjView 	@86
+				    height     	1413
+				    y_coord    	1323
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @88
+				    location   	(334, 755)
+				    line_color 	3342489
+				    InterObjView 	@86
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @89
+				    location   	(334, 1175)
+				    line_color 	3342489
+				    InterObjView 	@86
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @90
+				    location   	(334, 1438)
+				    line_color 	3342489
+				    InterObjView 	@86
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @91
+				    location   	(334, 1753)
+				    line_color 	3342489
+				    InterObjView 	@86
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE))
+			    (object InterObjView "GUI" @92
+				location   	(1268, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@92
+				    location   	(1268, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"GUI")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E156E001C"
+				width      	300
+				height     	1718
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @93
+				    location   	(1268, 440)
+				    line_color 	3342489
+				    InterObjView 	@92
+				    height     	315
+				    y_coord    	225
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @94
+				    location   	(1268, 650)
+				    line_color 	3342489
+				    InterObjView 	@92
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @95
+				    location   	(1268, 860)
+				    line_color 	3342489
+				    InterObjView 	@92
+				    height     	315
+				    y_coord    	225
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @96
+				    location   	(1268, 1070)
+				    line_color 	3342489
+				    InterObjView 	@92
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @97
+				    location   	(1268, 1280)
+				    line_color 	3342489
+				    InterObjView 	@92
+				    height     	248
+				    y_coord    	158
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @98
+				    location   	(1268, 1543)
+				    line_color 	3342489
+				    InterObjView 	@92
+				    height     	210
+				    y_coord    	120
+				    Nested     	FALSE))
+			    (object InterObjView "База данных" @99
+				location   	(2104, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@99
+				    location   	(2104, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"База данных")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E156E002D"
+				width      	300
+				height     	1718
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @100
+				    location   	(2104, 545)
+				    line_color 	3342489
+				    InterObjView 	@99
+				    height     	195
+				    y_coord    	105
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @101
+				    location   	(2104, 965)
+				    line_color 	3342489
+				    InterObjView 	@99
+				    height     	105
+				    y_coord    	15
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @102
+				    location   	(2104, 1648)
+				    line_color 	3342489
+				    InterObjView 	@99
+				    height     	90
+				    y_coord    	0
+				    Nested     	FALSE))
+			    (object InterMessView "Выбор вкладки с рассписанием предметов" @103
+				location   	(0, 440)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @104
+				    Parent_View 	@103
+				    location   	(800, 396)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E000E"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	870
+				    justify    	0
+				    label      	"Выбор вкладки с рассписанием предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@86
+				supplier   	@92
+				Focus_Src  	@87
+				Focus_Entry 	@93
+				origin     	(349, 440)
+				terminus   	(1252, 440)
+				ordinal    	0)
+			    (object InterMessView "Получить расписание предметов" @105
+				location   	(0, 545)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @106
+				    Parent_View 	@105
+				    location   	(1685, 501)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E001A"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	672
+				    justify    	0
+				    label      	"Получить расписание предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@92
+				supplier   	@99
+				Focus_Src  	@93
+				Focus_Entry 	@100
+				origin     	(1283, 545)
+				terminus   	(2088, 545)
+				ordinal    	1)
+			    (object InterMessView "Рассписание предметов " @107
+				location   	(0, 650)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @108
+				    Parent_View 	@107
+				    location   	(1686, 606)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E0020"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	516
+				    justify    	0
+				    label      	"Рассписание предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@99
+				supplier   	@92
+				Focus_Src  	@100
+				Focus_Entry 	@94
+				origin     	(2088, 650)
+				terminus   	(1284, 650)
+				ordinal    	2)
+			    (object InterMessView "Отображение расписания" @109
+				location   	(0, 755)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @110
+				    Parent_View 	@109
+				    location   	(801, 711)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E0010"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	538
+				    justify    	0
+				    label      	"Отображение расписания"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@92
+				supplier   	@86
+				Focus_Src  	@93
+				Focus_Entry 	@88
+				origin     	(1252, 755)
+				terminus   	(350, 755)
+				ordinal    	3)
+			    (object InterMessView "Выбор предмета" @111
+				location   	(0, 1280)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @112
+				    Parent_View 	@111
+				    location   	(800, 1236)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E0012"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	370
+				    justify    	0
+				    label      	"Выбор предмета"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@86
+				supplier   	@92
+				Focus_Src  	@87
+				Focus_Entry 	@97
+				origin     	(349, 1280)
+				terminus   	(1252, 1280)
+				ordinal    	8)
+			    (object InterMessView "Отображение клавиатуры " @113
+				location   	(0, 1438)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @114
+				    Parent_View 	@113
+				    location   	(801, 1394)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E0014"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	550
+				    justify    	0
+				    label      	"Отображение клавиатуры"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@92
+				supplier   	@86
+				Focus_Src  	@97
+				Focus_Entry 	@90
+				origin     	(1252, 1438)
+				terminus   	(350, 1438)
+				ordinal    	9)
+			    (object InterMessView "Ввод домашнего задания" @115
+				location   	(0, 1543)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @116
+				    Parent_View 	@115
+				    location   	(800, 1499)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E0016"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	556
+				    justify    	0
+				    label      	"Ввод домашнего задания"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@86
+				supplier   	@92
+				Focus_Src  	@87
+				Focus_Entry 	@98
+				origin     	(349, 1543)
+				terminus   	(1252, 1543)
+				ordinal    	10)
+			    (object InterMessView "Сохранение домашнего задания" @117
+				location   	(0, 1648)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @118
+				    Parent_View 	@117
+				    location   	(1685, 1604)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E0022"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	688
+				    justify    	0
+				    label      	"Сохранение домашнего задания"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@92
+				supplier   	@99
+				Focus_Src  	@98
+				Focus_Entry 	@102
+				origin     	(1283, 1648)
+				terminus   	(2088, 1648)
+				ordinal    	11)
+			    (object InterMessView "Возвращение к расписанию" @119
+				location   	(0, 1753)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @120
+				    Parent_View 	@119
+				    location   	(801, 1709)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E156E001E"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	607
+				    justify    	0
+				    label      	"Возвращение к расписанию"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@92
+				supplier   	@86
+				Focus_Src  	@98
+				Focus_Entry 	@91
+				origin     	(1252, 1753)
+				terminus   	(350, 1753)
+				ordinal    	12)
+			    (object InterMessView "Выбор даты занятия" @121
+				location   	(0, 860)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @122
+				    Parent_View 	@121
+				    location   	(800, 816)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E184D0126"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	438
+				    justify    	0
+				    label      	"Выбор даты занятия"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@86
+				supplier   	@92
+				Focus_Src  	@87
+				Focus_Entry 	@95
+				origin     	(349, 860)
+				terminus   	(1252, 860)
+				ordinal    	4)
+			    (object InterMessView "Получить расписание предметов" @123
+				location   	(0, 965)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @124
+				    Parent_View 	@123
+				    location   	(1685, 921)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E18530214"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	672
+				    justify    	0
+				    label      	"Получить расписание предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@92
+				supplier   	@99
+				Focus_Src  	@95
+				Focus_Entry 	@101
+				origin     	(1283, 965)
+				terminus   	(2088, 965)
+				ordinal    	5)
+			    (object InterMessView "Рассписание предметов " @125
+				location   	(0, 1070)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @126
+				    Parent_View 	@125
+				    location   	(1686, 1026)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E18590108"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	516
+				    justify    	0
+				    label      	"Рассписание предметов"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@99
+				supplier   	@92
+				Focus_Src  	@101
+				Focus_Entry 	@96
+				origin     	(2088, 1070)
+				terminus   	(1284, 1070)
+				ordinal    	6)
+			    (object InterMessView "Отображение расписания" @127
+				location   	(0, 1175)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @128
+				    Parent_View 	@127
+				    location   	(801, 1131)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E185F030D"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	531
+				    justify    	0
+				    label      	"Отображение расписания"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@92
+				supplier   	@86
+				Focus_Src  	@95
+				Focus_Entry 	@89
+				origin     	(1252, 1175)
+				terminus   	(350, 1175)
+				ordinal    	7)))))
 	    (object UseCase "Просмотр успеваемости по четвертям"
 		quid       	"580CC01F0153"
 		documentation 	
@@ -100,7 +2776,786 @@
 |- выбрать вкладку просмотр успеваемости 
 |- выбрать критерий для сортировки (Предметы по алвавиту)
 |
-		)
+		
+		statemachine 	(object State_Machine "State/Activity Model6"
+		    quid       	"580E2EA0026D"
+		    states     	(list States
+			(object State "$UNNAMED$6"
+			    quid       	"580E2EBD01C7"
+			    type       	"StartState")
+			(object ActivityState "Выбор вкладки с успеваемостью"
+			    quid       	"580E2EC70050")
+			(object ActivityState "Отображение успеваемости"
+			    quid       	"580E2EC90139")
+			(object ActivityState "Выбор критерия сортировки"
+			    quid       	"580E2ECC012D")
+			(object ActivityState "Отображение отсортированной успеваемости"
+			    quid       	"580E2ECE037A")
+			(object State "$UNNAMED$7"
+			    quid       	"580E2ED300B7"
+			    type       	"EndState"))
+		    partitions 	(list Partitions
+			(object Partition "Пользователь"
+			    quid       	"580E2EA7019D"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Partition "GUI"
+			    quid       	"580E2EA802A4"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE))
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"580E2F140211"
+			    supplier   	"Use Case View::Просмотр успеваемости по четвертям::State/Activity Model6::Выбор вкладки с успеваемостью"
+			    supplier_quidu 	"580E2EC70050"
+			    client     	"$UNNAMED$6"
+			    client_quidu 	"580E2EBD01C7"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2F140214"))
+			(object State_Transition
+			    quid       	"580E2F1B0377"
+			    supplier   	"Use Case View::Просмотр успеваемости по четвертям::State/Activity Model6::Отображение успеваемости"
+			    supplier_quidu 	"580E2EC90139"
+			    client     	"Use Case View::Просмотр успеваемости по четвертям::State/Activity Model6::Выбор вкладки с успеваемостью"
+			    client_quidu 	"580E2EC70050"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2F1B037A"))
+			(object State_Transition
+			    quid       	"580E2F200140"
+			    supplier   	"Use Case View::Просмотр успеваемости по четвертям::State/Activity Model6::Выбор критерия сортировки"
+			    supplier_quidu 	"580E2ECC012D"
+			    client     	"Use Case View::Просмотр успеваемости по четвертям::State/Activity Model6::Отображение успеваемости"
+			    client_quidu 	"580E2EC90139"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2F200143"))
+			(object State_Transition
+			    quid       	"580E2F250241"
+			    supplier   	"Use Case View::Просмотр успеваемости по четвертям::State/Activity Model6::Отображение отсортированной успеваемости"
+			    supplier_quidu 	"580E2ECE037A"
+			    client     	"Use Case View::Просмотр успеваемости по четвертям::State/Activity Model6::Выбор критерия сортировки"
+			    client_quidu 	"580E2ECC012D"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2F250244"))
+			(object State_Transition
+			    quid       	"580E2F2A0029"
+			    supplier   	"$UNNAMED$7"
+			    supplier_quidu 	"580E2ED300B7"
+			    client     	"Use Case View::Просмотр успеваемости по четвертям::State/Activity Model6::Отображение отсортированной успеваемости"
+			    client_quidu 	"580E2ECE037A"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2F2A002C")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "NewDiagram12"
+			    quid       	"580E2EA0026F"
+			    title      	"NewDiagram12"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "Пользователь" @129
+				    line_color 	3342489
+				    quidu      	"580E2EA7019D"
+				    width      	704)
+				(object StateView "StartState" "$UNNAMED$6" @130
+				    Parent_View 	@129
+				    location   	(329, 134)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E2EBD01C7"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор вкладки с успеваемостью" @131
+				    Parent_View 	@129
+				    location   	(328, 395)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@131
+					location   	(328, 398)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	370
+					justify    	0
+					label      	"Выбор вкладки с успеваемостью")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2EC70050"
+				    width      	476
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор критерия сортировки" @132
+				    Parent_View 	@129
+				    location   	(333, 781)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@132
+					location   	(333, 784)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	354
+					justify    	0
+					label      	"Выбор критерия сортировки")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2ECC012D"
+				    width      	460
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object Swimlane "GUI" @133
+				    location   	(704, 0)
+				    line_color 	3342489
+				    quidu      	"580E2EA802A4"
+				    width      	850)
+				(object ActivityStateView "Отображение успеваемости" @134
+				    Parent_View 	@133
+				    location   	(1131, 587)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@134
+					location   	(1131, 590)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Отображение успеваемости")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2EC90139"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Отображение отсортированной успеваемости" @135
+				    Parent_View 	@133
+				    location   	(1129, 1011)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@135
+					location   	(1129, 1014)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	624
+					justify    	0
+					label      	"Отображение отсортированной успеваемости")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2ECE037A"
+				    width      	730
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object StateView "EndState" "$UNNAMED$7" @136
+				    Parent_View 	@133
+				    location   	(1129, 1242)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E2ED300B7"
+				    autoResize 	TRUE)
+				(object Swimlane "" @137
+				    location   	(1554, 0)
+				    line_color 	3342489
+				    width      	450)
+				(object TransView "" @138
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2F140211"
+				    client     	@130
+				    supplier   	@131
+				    vertices   	(list Points
+					(328, 163)
+					(328, 342))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @139
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2F2A0029"
+				    client     	@135
+				    supplier   	@136
+				    vertices   	(list Points
+					(1129, 1064)
+					(1129, 1200))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @140
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2F1B0377"
+				    client     	@131
+				    supplier   	@134
+				    vertices   	(list Points
+					(537, 394)
+					(1131, 394)
+					(1131, 534))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @141
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2F200140"
+				    client     	@134
+				    supplier   	@132
+				    vertices   	(list Points
+					(1131, 640)
+					(1131, 781)
+					(536, 781))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @142
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2F250241"
+				    client     	@132
+				    supplier   	@135
+				    vertices   	(list Points
+					(333, 833)
+					(334, 1009)
+					(824, 1010))
+				    line_style 	0
+				    x_offset   	FALSE)))))
+		logical_models 	(list unit_reference_list
+		    (object Mechanism @143
+			logical_models 	(list unit_reference_list
+			    (object Object "Пользователь"
+				quid       	"580E1951027C"
+				collaborators 	(list link_list
+				    (object Link
+					quid       	"580E1951027D"
+					supplier   	"GUI"
+					quidu      	"580E19510287"
+					messages   	(list Messages
+					    (object Message "Выбор вкладки с успеваемостью"
+						quid       	"580E1951027E"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"1"
+						ordinal    	0
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Отображение успеваемости"
+						quid       	"580E19510280"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"1.2"
+						ordinal    	3
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Выбор критерия для сортировки"
+						quid       	"580E19510282"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"2"
+						ordinal    	4
+						quidu      	"000000000000"
+						creation   	FALSE))))
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE)
+			    (object Object "GUI"
+				quid       	"580E19510287"
+				collaborators 	(list link_list
+				    (object Link
+					quid       	"580E19510286"
+					supplier   	"База данных"
+					quidu      	"580E19510296"
+					messages   	(list Messages
+					    (object Message "Получить успеваемость"
+						quid       	"580E19510285"
+						frequency  	"Aperiodic"
+						synchronization 	"Simple"
+						dir        	"FromClientToSupplier"
+						sequence   	"1.1"
+						ordinal    	1
+						quidu      	"000000000000"
+						creation   	FALSE)
+					    (object Message "Успеваемость"
+						quid       	"580E1951028A"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"ToClientFromSupplier"
+						sequence   	"1.1.1"
+						ordinal    	2
+						quidu      	"000000000000"
+						creation   	FALSE)))
+				    (object Link
+					quid       	"580E19510288"
+					supplier   	"Пользователь"
+					quidu      	"580E1951027C"
+					messages   	(list Messages
+					    (object Message "Отображение успеваемости"
+						quid       	"580E19510289"
+						frequency  	"Aperiodic"
+						synchronization 	"Return"
+						dir        	"FromClientToSupplier"
+						sequence   	"2.1"
+						ordinal    	5
+						quidu      	"000000000000"
+						creation   	FALSE))))
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE)
+			    (object Object "База данных"
+				quid       	"580E19510296"
+				persistence 	"Transient"
+				creationObj 	FALSE
+				multi      	FALSE))))
+		logical_presentations 	(list unit_reference_list
+		    (object InteractionDiagram "NewDiagram6"
+			mechanism_ref 	@143
+			quid       	"580E194B00D9"
+			title      	"NewDiagram6"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object InterObjView "Пользователь" @144
+				location   	(334, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@144
+				    location   	(334, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"Пользователь")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E1951027C"
+				width      	300
+				height     	1155
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @145
+				    location   	(334, 440)
+				    line_color 	3342489
+				    InterObjView 	@144
+				    height     	850
+				    y_coord    	760
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @146
+				    location   	(334, 755)
+				    line_color 	3342489
+				    InterObjView 	@144
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @147
+				    location   	(334, 1175)
+				    line_color 	3342489
+				    InterObjView 	@144
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE))
+			    (object InterObjView "GUI" @148
+				location   	(1268, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@148
+				    location   	(1268, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"GUI")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E19510287"
+				width      	300
+				height     	1155
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @149
+				    location   	(1268, 440)
+				    line_color 	3342489
+				    InterObjView 	@148
+				    height     	315
+				    y_coord    	225
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @150
+				    location   	(1268, 650)
+				    line_color 	3342489
+				    InterObjView 	@148
+				    height     	1
+				    y_coord    	-89
+				    Nested     	TRUE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @151
+				    location   	(1268, 860)
+				    line_color 	3342489
+				    InterObjView 	@148
+				    height     	315
+				    y_coord    	225
+				    Nested     	FALSE))
+			    (object InterObjView "База данных" @152
+				location   	(2104, 225)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	TRUE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object ItemLabel
+				    Parent_View 	@152
+				    location   	(2104, 225)
+				    fill_color 	13434879
+				    anchor_loc 	1
+				    nlines     	2
+				    max_width  	282
+				    justify    	0
+				    label      	"База данных")
+				icon_style 	"Icon"
+				line_color 	3342489
+				fill_color 	13434879
+				quidu      	"580E19510296"
+				width      	300
+				height     	1155
+				icon_height 	0
+				icon_width 	0
+				icon_y_offset 	0
+				annotation 	1
+				Focus_Of_Control 	(object Focus_Of_Control "" @153
+				    location   	(2104, 545)
+				    line_color 	3342489
+				    InterObjView 	@152
+				    height     	195
+				    y_coord    	105
+				    Nested     	FALSE))
+			    (object InterMessView "Выбор вкладки с успеваемостью" @154
+				location   	(0, 440)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @155
+				    Parent_View 	@154
+				    location   	(800, 396)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E1951027E"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	681
+				    justify    	0
+				    label      	"Выбор вкладки с успеваемостью"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@144
+				supplier   	@148
+				Focus_Src  	@145
+				Focus_Entry 	@149
+				origin     	(349, 440)
+				terminus   	(1252, 440)
+				ordinal    	0)
+			    (object InterMessView "Получить успеваемость" @156
+				location   	(0, 545)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @157
+				    Parent_View 	@156
+				    location   	(1685, 501)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E19510285"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	507
+				    justify    	0
+				    label      	"Получить успеваемость"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@148
+				supplier   	@152
+				Focus_Src  	@149
+				Focus_Entry 	@153
+				origin     	(1283, 545)
+				terminus   	(2088, 545)
+				ordinal    	1)
+			    (object InterMessView "Успеваемость" @158
+				location   	(0, 650)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @159
+				    Parent_View 	@158
+				    location   	(1686, 606)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E1951028A"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	319
+				    justify    	0
+				    label      	"Успеваемость"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@152
+				supplier   	@148
+				Focus_Src  	@153
+				Focus_Entry 	@150
+				origin     	(2088, 650)
+				terminus   	(1284, 650)
+				ordinal    	2)
+			    (object InterMessView "Отображение успеваемости" @160
+				location   	(0, 755)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @161
+				    Parent_View 	@160
+				    location   	(801, 711)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E19510280"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	582
+				    justify    	0
+				    label      	"Отображение успеваемости"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@148
+				supplier   	@144
+				Focus_Src  	@149
+				Focus_Entry 	@146
+				origin     	(1252, 755)
+				terminus   	(350, 755)
+				ordinal    	3)
+			    (object InterMessView "Выбор критерия для сортировки" @162
+				location   	(0, 860)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @163
+				    Parent_View 	@162
+				    location   	(800, 816)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E19510282"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	660
+				    justify    	0
+				    label      	"Выбор критерия для сортировки"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	0)
+				line_color 	3342489
+				client     	@144
+				supplier   	@148
+				Focus_Src  	@145
+				Focus_Entry 	@151
+				origin     	(349, 860)
+				terminus   	(1252, 860)
+				ordinal    	4)
+			    (object InterMessView "Отображение успеваемости" @164
+				location   	(0, 1175)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @165
+				    Parent_View 	@164
+				    location   	(801, 1131)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    quidu      	"580E19510289"
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	582
+				    justify    	0
+				    label      	"Отображение успеваемости"
+				    pctDist    	0.500000
+				    height     	45
+				    orientation 	1)
+				line_color 	3342489
+				client     	@148
+				supplier   	@144
+				Focus_Src  	@151
+				Focus_Entry 	@147
+				origin     	(1252, 1175)
+				terminus   	(350, 1175)
+				ordinal    	5)))))
 	    (object UseCase "Добавить новый предмет"
 		quid       	"580CC02203CC"
 		documentation 	
@@ -117,15 +3572,580 @@
 |- расписание сохраняется в базу данных
 |- обновляется расписание во вкладке "Рассписание занятий"
 		
+		statemachine 	(object State_Machine "State/Activity Model2"
+		    quid       	"580E20990104"
+		    states     	(list States
+			(object State "$UNNAMED$8"
+			    quid       	"580E224E0257"
+			    type       	"StartState")
+			(object ActivityState "Выбор вкладки расписание предметов"
+			    quid       	"580E2252039F")
+			(object ActivityState "Отображение расписания"
+			    quid       	"580E22780083")
+			(object ActivityState "Нажатие клавиши добавить"
+			    quid       	"580E227E03D0")
+			(object ActivityState "Открытие окна для добавления предмета"
+			    quid       	"580E228201AE")
+			(object ActivityState "Выбор нового предмета из списка"
+			    quid       	"580E228A037C")
+			(object State "NewState"
+			    quid       	"580E229501B9"
+			    type       	"Normal")
+			(object ActivityState "Нажатие клавиши сохранить"
+			    quid       	"580E229C0261")
+			(object ActivityState "Сохранение в базу"
+			    quid       	"580E22EB0299")
+			(object ActivityState "Возврат к расписанию"
+			    quid       	"580E2301021C")
+			(object State "$UNNAMED$9"
+			    quid       	"580E230A02DB"
+			    type       	"EndState")
+			(object ActivityState "Нажатие клавиши отмена"
+			    quid       	"580E256300D4"))
+		    partitions 	(list Partitions
+			(object Partition "Пользователь"
+			    quid       	"580E215401E9"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Partition "GUI"
+			    quid       	"580E21550121"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE))
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"580E231A0117"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Выбор вкладки расписание предметов"
+			    supplier_quidu 	"580E2252039F"
+			    client     	"$UNNAMED$8"
+			    client_quidu 	"580E224E0257"
+			    sendEvent  	(object sendEvent
+				quid       	"580E231A011A"))
+			(object State_Transition
+			    quid       	"580E232002DD"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Отображение расписания"
+			    supplier_quidu 	"580E22780083"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Выбор вкладки расписание предметов"
+			    client_quidu 	"580E2252039F"
+			    sendEvent  	(object sendEvent
+				quid       	"580E232002E0"))
+			(object State_Transition
+			    quid       	"580E232D03CB"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Нажатие клавиши добавить"
+			    supplier_quidu 	"580E227E03D0"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Отображение расписания"
+			    client_quidu 	"580E22780083"
+			    sendEvent  	(object sendEvent
+				quid       	"580E232D03CE"))
+			(object State_Transition
+			    quid       	"580E233B0399"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Открытие окна для добавления предмета"
+			    supplier_quidu 	"580E228201AE"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Нажатие клавиши добавить"
+			    client_quidu 	"580E227E03D0"
+			    sendEvent  	(object sendEvent
+				quid       	"580E233B039C"))
+			(object State_Transition
+			    quid       	"580E234603B4"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Выбор нового предмета из списка"
+			    supplier_quidu 	"580E228A037C"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Открытие окна для добавления предмета"
+			    client_quidu 	"580E228201AE"
+			    sendEvent  	(object sendEvent
+				quid       	"580E234603B7"))
+			(object State_Transition
+			    quid       	"580E234B030A"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Нажатие клавиши сохранить"
+			    supplier_quidu 	"580E229C0261"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Выбор нового предмета из списка"
+			    client_quidu 	"580E228A037C"
+			    sendEvent  	(object sendEvent
+				quid       	"580E234B030D"))
+			(object State_Transition
+			    quid       	"580E23520110"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Сохранение в базу"
+			    supplier_quidu 	"580E22EB0299"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Нажатие клавиши сохранить"
+			    client_quidu 	"580E229C0261"
+			    sendEvent  	(object sendEvent
+				quid       	"580E23520113"))
+			(object State_Transition
+			    quid       	"580E235601D8"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Возврат к расписанию"
+			    supplier_quidu 	"580E2301021C"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Сохранение в базу"
+			    client_quidu 	"580E22EB0299"
+			    sendEvent  	(object sendEvent
+				quid       	"580E235601DB"))
+			(object State_Transition
+			    quid       	"580E23590398"
+			    supplier   	"$UNNAMED$9"
+			    supplier_quidu 	"580E230A02DB"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Возврат к расписанию"
+			    client_quidu 	"580E2301021C"
+			    sendEvent  	(object sendEvent
+				quid       	"580E2359039B"))
+			(object State_Transition
+			    quid       	"580E2594005D"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Нажатие клавиши отмена"
+			    supplier_quidu 	"580E256300D4"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Выбор нового предмета из списка"
+			    client_quidu 	"580E228A037C"
+			    sendEvent  	(object sendEvent
+				quid       	"580E25940060"))
+			(object State_Transition
+			    quid       	"580E25E20344"
+			    supplier   	"Use Case View::Добавить новый предмет::State/Activity Model2::Возврат к расписанию"
+			    supplier_quidu 	"580E2301021C"
+			    client     	"Use Case View::Добавить новый предмет::State/Activity Model2::Нажатие клавиши отмена"
+			    client_quidu 	"580E256300D4"
+			    sendEvent  	(object sendEvent
+				quid       	"580E25E20347")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "NewDiagram8"
+			    quid       	"580E20990114"
+			    title      	"NewDiagram8"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "Пользователь" @166
+				    line_color 	3342489
+				    quidu      	"580E215401E9"
+				    width      	1156)
+				(object StateView "StartState" "$UNNAMED$8" @167
+				    Parent_View 	@166
+				    location   	(373, 128)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E224E0257"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор вкладки расписание предметов" @168
+				    Parent_View 	@166
+				    location   	(372, 342)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@168
+					location   	(372, 345)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	444
+					justify    	0
+					label      	"Выбор вкладки расписание предметов")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2252039F"
+				    width      	550
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @169
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E231A0117"
+				    client     	@167
+				    supplier   	@168
+				    vertices   	(list Points
+					(372, 158)
+					(372, 289))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Нажатие клавиши добавить" @170
+				    Parent_View 	@166
+				    location   	(374, 737)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@170
+					location   	(374, 740)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	340
+					justify    	0
+					label      	"Нажатие клавиши добавить")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E227E03D0"
+				    width      	446
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор нового предмета из списка" @171
+				    Parent_View 	@166
+				    location   	(378, 1159)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@171
+					location   	(378, 1162)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	380
+					justify    	0
+					label      	"Выбор нового предмета из списка")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E228A037C"
+				    width      	486
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Нажатие клавиши сохранить" @172
+				    Parent_View 	@166
+				    location   	(377, 1473)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@172
+					location   	(377, 1476)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	346
+					justify    	0
+					label      	"Нажатие клавиши сохранить")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E229C0261"
+				    width      	452
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Нажатие клавиши отмена" @173
+				    Parent_View 	@166
+				    location   	(856, 1768)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@173
+					location   	(856, 1771)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	324
+					justify    	0
+					label      	"Нажатие клавиши отмена")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E256300D4"
+				    width      	430
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object Swimlane "GUI" @174
+				    location   	(1156, 0)
+				    line_color 	3342489
+				    quidu      	"580E21550121"
+				    width      	850)
+				(object ActivityStateView "Отображение расписания" @175
+				    Parent_View 	@174
+				    location   	(1577, 542)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@175
+					location   	(1577, 545)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	538
+					justify    	0
+					label      	"Отображение расписания")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E22780083"
+				    width      	644
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @176
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E232002DD"
+				    client     	@168
+				    supplier   	@175
+				    vertices   	(list Points
+					(609, 341)
+					(1222, 341)
+					(1483, 489))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @177
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E232D03CB"
+				    client     	@175
+				    supplier   	@170
+				    vertices   	(list Points
+					(1481, 594)
+					(1225, 737)
+					(572, 737))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Открытие окна для добавления предмета" @178
+				    Parent_View 	@174
+				    location   	(1580, 914)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@178
+					location   	(1580, 917)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	440
+					justify    	0
+					label      	"Открытие окна для добавления предмета")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E228201AE"
+				    width      	546
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @179
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E233B0399"
+				    client     	@170
+				    supplier   	@178
+				    vertices   	(list Points
+					(373, 789)
+					(372, 912)
+					(1344, 913))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @180
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E234603B4"
+				    client     	@178
+				    supplier   	@171
+				    vertices   	(list Points
+					(1503, 967)
+					(1228, 1159)
+					(591, 1159))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Сохранение в базу" @181
+				    Parent_View 	@174
+				    location   	(1579, 1629)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@181
+					location   	(1579, 1632)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Сохранение в базу")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E22EB0299"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object ActivityStateView "Возврат к расписанию" @182
+				    Parent_View 	@174
+				    location   	(1577, 1894)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@182
+					location   	(1577, 1897)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Возврат к расписанию")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E2301021C"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @183
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E235601D8"
+				    client     	@181
+				    supplier   	@182
+				    vertices   	(list Points
+					(1578, 1682)
+					(1577, 1840))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object StateView "EndState" "$UNNAMED$9" @184
+				    Parent_View 	@174
+				    location   	(1576, 2153)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E230A02DB"
+				    autoResize 	TRUE)
+				(object TransView "" @185
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E23590398"
+				    client     	@182
+				    supplier   	@184
+				    vertices   	(list Points
+					(1576, 1946)
+					(1576, 2111))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object Swimlane "" @186
+				    location   	(2006, 0)
+				    line_color 	3342489
+				    width      	450)
+				(object TransView "" @187
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E234B030A"
+				    client     	@171
+				    supplier   	@172
+				    vertices   	(list Points
+					(377, 1212)
+					(377, 1419))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @188
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E2594005D"
+				    client     	@171
+				    supplier   	@173
+				    vertices   	(list Points
+					(520, 1211)
+					(856, 1337)
+					(856, 1715))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @189
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E23520110"
+				    client     	@172
+				    supplier   	@181
+				    vertices   	(list Points
+					(577, 1473)
+					(1578, 1475)
+					(1578, 1576))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @190
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E25E20344"
+				    client     	@173
+				    supplier   	@182
+				    vertices   	(list Points
+					(1048, 1768)
+					(1534, 1769)
+					(1558, 1840))
+				    line_style 	0
+				    x_offset   	FALSE)))))
 		logical_models 	(list unit_reference_list
-		    (object Mechanism @1
+		    (object Mechanism @191
 			logical_models 	(list unit_reference_list
 			    (object Object "Пользователь"
 				quid       	"580CEBEB013E"
 				collaborators 	(list link_list
 				    (object Link
 					quid       	"580CEC2C03D4"
-					supplier   	"Приложение"
+					supplier   	"GUI"
 					quidu      	"580CEBEE00FA"
 					messages   	(list Messages
 					    (object Message "Нажатие клавиши \"Добавить\""
@@ -194,7 +4214,7 @@
 				persistence 	"Transient"
 				creationObj 	FALSE
 				multi      	FALSE)
-			    (object Object "Приложение"
+			    (object Object "GUI"
 				quid       	"580CEBEE00FA"
 				collaborators 	(list link_list
 				    (object Link
@@ -239,16 +4259,16 @@
 				multi      	FALSE))))
 		logical_presentations 	(list unit_reference_list
 		    (object InteractionDiagram "NewDiagram2"
-			mechanism_ref 	@1
+			mechanism_ref 	@191
 			quid       	"580CEBDC01C6"
 			title      	"NewDiagram2"
 			zoom       	100
 			max_height 	28350
 			max_width  	21600
 			origin_x   	0
-			origin_y   	0
+			origin_y   	156
 			items      	(list diagram_item_list
-			    (object InterObjView "Пользователь" @2
+			    (object InterObjView "Пользователь" @192
 				location   	(344, 225)
 				font       	(object Font
 				    size       	10
@@ -261,7 +4281,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@2
+				    Parent_View 	@192
 				    location   	(344, 225)
 				    fill_color 	13434879
 				    anchor_loc 	1
@@ -274,54 +4294,61 @@
 				fill_color 	13434879
 				quidu      	"580CEBEB013E"
 				width      	300
-				height     	1251
+				height     	1400
 				icon_height 	0
 				icon_width 	0
 				icon_y_offset 	0
 				annotation 	1
-				Focus_Of_Control 	(object Focus_Of_Control "" @3
-				    location   	(344, 309)
+				Focus_Of_Control 	(object Focus_Of_Control "" @193
+				    location   	(344, 335)
 				    line_color 	3342489
-				    InterObjView 	@2
+				    InterObjView 	@192
 				    height     	415
 				    y_coord    	325
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @4
-				    location   	(344, 624)
+				Focus_Of_Control 	(object Focus_Of_Control "" @194
+				    location   	(344, 650)
 				    line_color 	3342489
-				    InterObjView 	@2
+				    InterObjView 	@192
 				    height     	1
 				    y_coord    	-89
 				    Nested     	TRUE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @5
-				    location   	(344, 729)
+				Focus_Of_Control 	(object Focus_Of_Control "" @195
+				    location   	(344, 815)
 				    line_color 	3342489
-				    InterObjView 	@2
-				    height     	300
-				    y_coord    	210
+				    InterObjView 	@192
+				    height     	228
+				    y_coord    	138
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @6
-				    location   	(344, 834)
+				Focus_Of_Control 	(object Focus_Of_Control "" @196
+				    location   	(344, 943)
 				    line_color 	3342489
-				    InterObjView 	@2
+				    InterObjView 	@192
 				    height     	1
 				    y_coord    	-89
 				    Nested     	TRUE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @7
-				    location   	(344, 1076)
+				Focus_Of_Control 	(object Focus_Of_Control "" @197
+				    location   	(344, 1048)
 				    line_color 	3342489
-				    InterObjView 	@2
+				    InterObjView 	@192
+				    height     	90
+				    y_coord    	0
+				    Nested     	FALSE)
+				Focus_Of_Control 	(object Focus_Of_Control "" @198
+				    location   	(344, 1225)
+				    line_color 	3342489
+				    InterObjView 	@192
 				    height     	310
 				    y_coord    	220
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @8
-				    location   	(344, 1286)
+				Focus_Of_Control 	(object Focus_Of_Control "" @199
+				    location   	(344, 1435)
 				    line_color 	3342489
-				    InterObjView 	@2
+				    InterObjView 	@192
 				    height     	1
 				    y_coord    	-89
 				    Nested     	TRUE))
-			    (object InterObjView "Приложение" @9
+			    (object InterObjView "GUI" @200
 				location   	(1441, 225)
 				font       	(object Font
 				    size       	10
@@ -334,60 +4361,60 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@9
+				    Parent_View 	@200
 				    location   	(1441, 225)
 				    fill_color 	13434879
 				    anchor_loc 	1
 				    nlines     	2
 				    max_width  	282
 				    justify    	0
-				    label      	"Приложение")
+				    label      	"GUI")
 				icon_style 	"Icon"
 				line_color 	3342489
 				fill_color 	13434879
 				quidu      	"580CEBEE00FA"
 				width      	300
-				height     	1251
+				height     	1400
 				icon_height 	0
 				icon_width 	0
 				icon_y_offset 	0
 				annotation 	1
-				Focus_Of_Control 	(object Focus_Of_Control "" @10
-				    location   	(1441, 309)
+				Focus_Of_Control 	(object Focus_Of_Control "" @201
+				    location   	(1441, 335)
 				    line_color 	3342489
-				    InterObjView 	@9
+				    InterObjView 	@200
 				    height     	315
 				    y_coord    	225
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @11
-				    location   	(1441, 519)
+				Focus_Of_Control 	(object Focus_Of_Control "" @202
+				    location   	(1441, 545)
 				    line_color 	3342489
-				    InterObjView 	@9
+				    InterObjView 	@200
 				    height     	1
 				    y_coord    	-89
 				    Nested     	TRUE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @12
-				    location   	(1441, 729)
+				Focus_Of_Control 	(object Focus_Of_Control "" @203
+				    location   	(1441, 815)
 				    line_color 	3342489
-				    InterObjView 	@9
-				    height     	195
-				    y_coord    	105
+				    InterObjView 	@200
+				    height     	218
+				    y_coord    	128
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @13
-				    location   	(1441, 939)
+				Focus_Of_Control 	(object Focus_Of_Control "" @204
+				    location   	(1441, 1048)
 				    line_color 	3342489
-				    InterObjView 	@9
+				    InterObjView 	@200
 				    height     	90
 				    y_coord    	0
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @14
-				    location   	(1441, 1076)
+				Focus_Of_Control 	(object Focus_Of_Control "" @205
+				    location   	(1441, 1225)
 				    line_color 	3342489
-				    InterObjView 	@9
+				    InterObjView 	@200
 				    height     	210
 				    y_coord    	120
 				    Nested     	FALSE))
-			    (object InterObjView "База данных" @15
+			    (object InterObjView "База данных" @206
 				location   	(2244, 225)
 				font       	(object Font
 				    size       	10
@@ -400,7 +4427,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@15
+				    Parent_View 	@206
 				    location   	(2244, 225)
 				    fill_color 	13434879
 				    anchor_loc 	1
@@ -413,27 +4440,27 @@
 				fill_color 	13434879
 				quidu      	"580CEBF100B6"
 				width      	300
-				height     	1251
+				height     	1400
 				icon_height 	0
 				icon_width 	0
 				icon_y_offset 	0
 				annotation 	1
-				Focus_Of_Control 	(object Focus_Of_Control "" @16
-				    location   	(2244, 414)
+				Focus_Of_Control 	(object Focus_Of_Control "" @207
+				    location   	(2244, 440)
 				    line_color 	3342489
-				    InterObjView 	@15
+				    InterObjView 	@206
 				    height     	105
 				    y_coord    	15
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @17
-				    location   	(2244, 1181)
+				Focus_Of_Control 	(object Focus_Of_Control "" @208
+				    location   	(2244, 1330)
 				    line_color 	3342489
-				    InterObjView 	@15
+				    InterObjView 	@206
 				    height     	90
 				    y_coord    	0
 				    Nested     	FALSE))
-			    (object InterMessView "Нажатие клавиши \"Добавить\"" @18
-				location   	(0, 729)
+			    (object InterMessView "Нажатие клавиши \"Добавить\"" @209
+				location   	(0, 815)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -444,9 +4471,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @19
-				    Parent_View 	@18
-				    location   	(892, 685)
+				label      	(object SegLabel @210
+				    Parent_View 	@209
+				    location   	(892, 771)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -469,15 +4496,15 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@2
-				supplier   	@9
-				Focus_Src  	@5
-				Focus_Entry 	@12
-				origin     	(359, 729)
-				terminus   	(1425, 729)
+				client     	@192
+				supplier   	@200
+				Focus_Src  	@195
+				Focus_Entry 	@203
+				origin     	(359, 815)
+				terminus   	(1425, 815)
 				ordinal    	4)
-			    (object InterMessView "Окна добавления предмета" @20
-				location   	(0, 834)
+			    (object InterMessView "Окна добавления предмета" @211
+				location   	(0, 943)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -488,9 +4515,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @21
-				    Parent_View 	@20
-				    location   	(893, 790)
+				label      	(object SegLabel @212
+				    Parent_View 	@211
+				    location   	(893, 899)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -511,15 +4538,15 @@
 				    height     	45
 				    orientation 	1)
 				line_color 	3342489
-				client     	@9
-				supplier   	@2
-				Focus_Src  	@12
-				Focus_Entry 	@6
-				origin     	(1425, 834)
-				terminus   	(360, 834)
+				client     	@200
+				supplier   	@192
+				Focus_Src  	@203
+				Focus_Entry 	@196
+				origin     	(1425, 943)
+				terminus   	(360, 943)
 				ordinal    	5)
-			    (object InterMessView "Выбор предмета" @22
-				location   	(0, 939)
+			    (object InterMessView "Выбор предмета" @213
+				location   	(0, 1048)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -530,9 +4557,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @23
-				    Parent_View 	@22
-				    location   	(892, 895)
+				label      	(object SegLabel @214
+				    Parent_View 	@213
+				    location   	(892, 1004)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -553,15 +4580,15 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@2
-				supplier   	@9
-				Focus_Src  	@5
-				Focus_Entry 	@13
-				origin     	(359, 939)
-				terminus   	(1425, 939)
+				client     	@192
+				supplier   	@200
+				Focus_Src  	@197
+				Focus_Entry 	@204
+				origin     	(359, 1048)
+				terminus   	(1425, 1048)
 				ordinal    	6)
-			    (object InterMessView "Нажатие клавиши сохранить" @24
-				location   	(0, 1076)
+			    (object InterMessView "Нажатие клавиши сохранить" @215
+				location   	(0, 1225)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -572,9 +4599,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @25
-				    Parent_View 	@24
-				    location   	(892, 1032)
+				label      	(object SegLabel @216
+				    Parent_View 	@215
+				    location   	(892, 1181)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -595,15 +4622,15 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@2
-				supplier   	@9
-				Focus_Src  	@7
-				Focus_Entry 	@14
-				origin     	(359, 1076)
-				terminus   	(1425, 1076)
+				client     	@192
+				supplier   	@200
+				Focus_Src  	@198
+				Focus_Entry 	@205
+				origin     	(359, 1225)
+				terminus   	(1425, 1225)
 				ordinal    	7)
-			    (object InterMessView "Сохранение нового предмета" @26
-				location   	(0, 1181)
+			    (object InterMessView "Сохранение нового предмета" @217
+				location   	(0, 1330)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -614,9 +4641,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @27
-				    Parent_View 	@26
-				    location   	(1842, 1137)
+				label      	(object SegLabel @218
+				    Parent_View 	@217
+				    location   	(1842, 1286)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -637,15 +4664,15 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@9
-				supplier   	@15
-				Focus_Src  	@14
-				Focus_Entry 	@17
-				origin     	(1456, 1181)
-				terminus   	(2228, 1181)
+				client     	@200
+				supplier   	@206
+				Focus_Src  	@205
+				Focus_Entry 	@208
+				origin     	(1456, 1330)
+				terminus   	(2228, 1330)
 				ordinal    	8)
-			    (object InterMessView "Возврат к расписанию предметов" @28
-				location   	(0, 1286)
+			    (object InterMessView "Возврат к расписанию предметов" @219
+				location   	(0, 1435)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -656,9 +4683,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @29
-				    Parent_View 	@28
-				    location   	(893, 1242)
+				label      	(object SegLabel @220
+				    Parent_View 	@219
+				    location   	(893, 1391)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -679,15 +4706,15 @@
 				    height     	45
 				    orientation 	1)
 				line_color 	3342489
-				client     	@9
-				supplier   	@2
-				Focus_Src  	@14
-				Focus_Entry 	@8
-				origin     	(1425, 1286)
-				terminus   	(360, 1286)
+				client     	@200
+				supplier   	@192
+				Focus_Src  	@205
+				Focus_Entry 	@199
+				origin     	(1425, 1435)
+				terminus   	(360, 1435)
 				ordinal    	9)
-			    (object InterMessView "Выбор вкладки \"Расписание предметов\"" @30
-				location   	(0, 309)
+			    (object InterMessView "Выбор вкладки \"Расписание предметов\"" @221
+				location   	(0, 335)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -698,9 +4725,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @31
-				    Parent_View 	@30
-				    location   	(892, 265)
+				label      	(object SegLabel @222
+				    Parent_View 	@221
+				    location   	(892, 291)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -714,7 +4741,7 @@
 				    quidu      	"580CEFCD0274"
 				    anchor_loc 	1
 				    nlines     	1
-				    max_width  	829
+				    max_width  	830
 				    justify    	0
 				    label      	
 |Выбор вкладки "Расписание предметов"
@@ -723,15 +4750,15 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@2
-				supplier   	@9
-				Focus_Src  	@3
-				Focus_Entry 	@10
-				origin     	(359, 309)
-				terminus   	(1425, 309)
+				client     	@192
+				supplier   	@200
+				Focus_Src  	@193
+				Focus_Entry 	@201
+				origin     	(359, 335)
+				terminus   	(1425, 335)
 				ordinal    	0)
-			    (object InterMessView "Получить расписание предметов" @32
-				location   	(0, 414)
+			    (object InterMessView "Получить расписание предметов" @223
+				location   	(0, 440)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -742,9 +4769,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @33
-				    Parent_View 	@32
-				    location   	(1842, 370)
+				label      	(object SegLabel @224
+				    Parent_View 	@223
+				    location   	(1842, 396)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -765,15 +4792,15 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@9
-				supplier   	@15
-				Focus_Src  	@10
-				Focus_Entry 	@16
-				origin     	(1456, 414)
-				terminus   	(2228, 414)
+				client     	@200
+				supplier   	@206
+				Focus_Src  	@201
+				Focus_Entry 	@207
+				origin     	(1456, 440)
+				terminus   	(2228, 440)
 				ordinal    	1)
-			    (object InterMessView "Расписание предметов" @34
-				location   	(0, 519)
+			    (object InterMessView "Расписание предметов" @225
+				location   	(0, 545)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -784,9 +4811,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @35
-				    Parent_View 	@34
-				    location   	(1843, 475)
+				label      	(object SegLabel @226
+				    Parent_View 	@225
+				    location   	(1843, 501)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -807,15 +4834,15 @@
 				    height     	45
 				    orientation 	1)
 				line_color 	3342489
-				client     	@15
-				supplier   	@9
-				Focus_Src  	@16
-				Focus_Entry 	@11
-				origin     	(2228, 519)
-				terminus   	(1457, 519)
+				client     	@206
+				supplier   	@200
+				Focus_Src  	@207
+				Focus_Entry 	@202
+				origin     	(2228, 545)
+				terminus   	(1457, 545)
 				ordinal    	2)
-			    (object InterMessView "Отображение расписания" @36
-				location   	(0, 624)
+			    (object InterMessView "Отображение расписания" @227
+				location   	(0, 650)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -826,9 +4853,9 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @37
-				    Parent_View 	@36
-				    location   	(893, 580)
+				label      	(object SegLabel @228
+				    Parent_View 	@227
+				    location   	(893, 606)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -849,12 +4876,12 @@
 				    height     	45
 				    orientation 	1)
 				line_color 	3342489
-				client     	@9
-				supplier   	@2
-				Focus_Src  	@10
-				Focus_Entry 	@4
-				origin     	(1425, 624)
-				terminus   	(360, 624)
+				client     	@200
+				supplier   	@192
+				Focus_Src  	@201
+				Focus_Entry 	@194
+				origin     	(1425, 650)
+				terminus   	(360, 650)
 				ordinal    	3)))))
 	    (object UseCase "Выставление отметки"
 		quid       	"580CD36400D8"
@@ -872,15 +4899,300 @@
 |- отметка сохраняется в базу данных
 |- обновляется отметка во вкладке "Рассписание занятий"
 		
+		statemachine 	(object State_Machine "State/Activity Model"
+		    quid       	"580E1B5A03DD"
+		    states     	(list States
+			(object State "$UNNAMED$10"
+			    quid       	"580E1DA60260"
+			    type       	"StartState")
+			(object ActivityState "Выбор вкладки расписание предметов"
+			    quid       	"580E1DE9016C")
+			(object ActivityState "Отображение вкладки с расписанием"
+			    quid       	"580E1EB202D3")
+			(object ActivityState "Выставляем отметку по нужному предмету"
+			    quid       	"580E1EB803E6")
+			(object ActivityState "Сохранение в базу"
+			    quid       	"580E1F27011D")
+			(object State "$UNNAMED$11"
+			    quid       	"580E200B03DF"
+			    type       	"EndState"))
+		    partitions 	(list Partitions
+			(object Partition "Пользователь"
+			    quid       	"580E1D86011D"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Partition "GUI"
+			    quid       	"580E1D8A024E"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE))
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"580E1E890022"
+			    supplier   	"Use Case View::Выставление отметки::State/Activity Model::Выбор вкладки расписание предметов"
+			    supplier_quidu 	"580E1DE9016C"
+			    client     	"$UNNAMED$10"
+			    client_quidu 	"580E1DA60260"
+			    sendEvent  	(object sendEvent
+				quid       	"580E1E890025"))
+			(object State_Transition
+			    quid       	"580E1F89018E"
+			    supplier   	"Use Case View::Выставление отметки::State/Activity Model::Отображение вкладки с расписанием"
+			    supplier_quidu 	"580E1EB202D3"
+			    client     	"Use Case View::Выставление отметки::State/Activity Model::Выбор вкладки расписание предметов"
+			    client_quidu 	"580E1DE9016C"
+			    sendEvent  	(object sendEvent
+				quid       	"580E1F890191"))
+			(object State_Transition
+			    quid       	"580E1F9D0246"
+			    supplier   	"Use Case View::Выставление отметки::State/Activity Model::Выставляем отметку по нужному предмету"
+			    supplier_quidu 	"580E1EB803E6"
+			    client     	"Use Case View::Выставление отметки::State/Activity Model::Отображение вкладки с расписанием"
+			    client_quidu 	"580E1EB202D3"
+			    sendEvent  	(object sendEvent
+				quid       	"580E1F9D0249"))
+			(object State_Transition
+			    quid       	"580E1FF603C7"
+			    supplier   	"Use Case View::Выставление отметки::State/Activity Model::Сохранение в базу"
+			    supplier_quidu 	"580E1F27011D"
+			    client     	"Use Case View::Выставление отметки::State/Activity Model::Выставляем отметку по нужному предмету"
+			    client_quidu 	"580E1EB803E6"
+			    sendEvent  	(object sendEvent
+				quid       	"580E1FF603CA"))
+			(object State_Transition
+			    quid       	"580E200F0348"
+			    supplier   	"$UNNAMED$11"
+			    supplier_quidu 	"580E200B03DF"
+			    client     	"Use Case View::Выставление отметки::State/Activity Model::Сохранение в базу"
+			    client_quidu 	"580E1F27011D"
+			    sendEvent  	(object sendEvent
+				quid       	"580E200F034B")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "NewDiagram7"
+			    quid       	"580E1B5B0004"
+			    title      	"NewDiagram7"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "Пользователь" @229
+				    line_color 	3342489
+				    quidu      	"580E1D86011D"
+				    width      	978)
+				(object StateView "StartState" "$UNNAMED$10" @230
+				    Parent_View 	@229
+				    location   	(462, 86)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E1DA60260"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Выбор вкладки расписание предметов" @231
+				    Parent_View 	@229
+				    location   	(462, 276)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@231
+					location   	(462, 279)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	444
+					justify    	0
+					label      	"Выбор вкладки расписание предметов")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E1DE9016C"
+				    width      	550
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @232
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E1E890022"
+				    client     	@230
+				    supplier   	@231
+				    vertices   	(list Points
+					(462, 116)
+					(462, 223))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Выставляем отметку по нужному предмету" @233
+				    Parent_View 	@229
+				    location   	(464, 625)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@233
+					location   	(464, 628)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	416
+					justify    	0
+					label      	"Выставляем отметку по нужному предмету")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E1EB803E6"
+				    width      	522
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object Swimlane "GUI" @234
+				    location   	(978, 0)
+				    line_color 	3342489
+				    quidu      	"580E1D8A024E"
+				    width      	1064)
+				(object ActivityStateView "Отображение вкладки с расписанием" @235
+				    Parent_View 	@234
+				    location   	(1493, 461)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@235
+					location   	(1493, 464)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	464
+					justify    	0
+					label      	"Отображение вкладки с расписанием")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E1EB202D3"
+				    width      	570
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @236
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E1F89018E"
+				    client     	@231
+				    supplier   	@235
+				    vertices   	(list Points
+					(699, 275)
+					(1494, 275)
+					(1493, 408))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @237
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E1F9D0246"
+				    client     	@235
+				    supplier   	@233
+				    vertices   	(list Points
+					(1493, 513)
+					(1494, 625)
+					(690, 625))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Сохранение в базу" @238
+				    Parent_View 	@234
+				    location   	(1493, 810)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@238
+					location   	(1493, 813)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Сохранение в базу")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"580E1F27011D"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @239
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E1FF603C7"
+				    client     	@233
+				    supplier   	@238
+				    vertices   	(list Points
+					(464, 677)
+					(466, 809)
+					(1321, 809))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object StateView "EndState" "$UNNAMED$11" @240
+				    Parent_View 	@234
+				    location   	(1495, 1084)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"580E200B03DF"
+				    autoResize 	TRUE)
+				(object Swimlane "" @241
+				    location   	(2042, 0)
+				    line_color 	3342489
+				    width      	450)
+				(object TransView "" @242
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"580E200F0348"
+				    client     	@238
+				    supplier   	@240
+				    vertices   	(list Points
+					(1493, 862)
+					(1494, 1042))
+				    line_style 	0
+				    x_offset   	FALSE)))))
 		logical_models 	(list unit_reference_list
-		    (object Mechanism @38
+		    (object Mechanism @243
 			logical_models 	(list unit_reference_list
 			    (object Object "Пользователь"
 				quid       	"580CD85801F4"
 				collaborators 	(list link_list
 				    (object Link
 					quid       	"580CDA0C0256"
-					supplier   	"Приложение"
+					supplier   	"GUI"
 					quidu      	"580CD86A02A5"
 					messages   	(list Messages
 					    (object Message "Выбор вкладки с рассписанием предметов"
@@ -931,7 +5243,7 @@
 				persistence 	"Transient"
 				creationObj 	FALSE
 				multi      	FALSE)
-			    (object Object "Приложение"
+			    (object Object "GUI"
 				quid       	"580CD86A02A5"
 				collaborators 	(list link_list
 				    (object Link
@@ -971,7 +5283,7 @@
 					supplier   	"Пользователь"
 					quidu      	"580CD85801F4"
 					messages   	(list Messages
-					    (object Message "Обновление вкладки"
+					    (object Message "Возвращение к расписанию"
 						quid       	"580CDAA800AA"
 						frequency  	"Aperiodic"
 						synchronization 	"Return"
@@ -990,16 +5302,16 @@
 				multi      	FALSE))))
 		logical_presentations 	(list unit_reference_list
 		    (object InteractionDiagram "NewDiagram"
-			mechanism_ref 	@38
+			mechanism_ref 	@243
 			quid       	"580CD85002F7"
 			title      	"NewDiagram"
 			zoom       	100
 			max_height 	28350
 			max_width  	21600
 			origin_x   	0
-			origin_y   	38
+			origin_y   	819
 			items      	(list diagram_item_list
-			    (object InterObjView "Пользователь" @39
+			    (object InterObjView "Пользователь" @244
 				location   	(334, 225)
 				font       	(object Font
 				    size       	10
@@ -1012,7 +5324,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@39
+				    Parent_View 	@244
 				    location   	(334, 225)
 				    fill_color 	13434879
 				    anchor_loc 	1
@@ -1030,35 +5342,35 @@
 				icon_width 	0
 				icon_y_offset 	0
 				annotation 	1
-				Focus_Of_Control 	(object Focus_Of_Control "" @40
+				Focus_Of_Control 	(object Focus_Of_Control "" @245
 				    location   	(334, 440)
 				    line_color 	3342489
-				    InterObjView 	@39
+				    InterObjView 	@244
 				    height     	940
 				    y_coord    	850
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @41
+				Focus_Of_Control 	(object Focus_Of_Control "" @246
 				    location   	(334, 755)
 				    line_color 	3342489
-				    InterObjView 	@39
+				    InterObjView 	@244
 				    height     	1
 				    y_coord    	-89
 				    Nested     	TRUE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @42
+				Focus_Of_Control 	(object Focus_Of_Control "" @247
 				    location   	(334, 965)
 				    line_color 	3342489
-				    InterObjView 	@39
+				    InterObjView 	@244
 				    height     	1
 				    y_coord    	-89
 				    Nested     	TRUE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @43
+				Focus_Of_Control 	(object Focus_Of_Control "" @248
 				    location   	(334, 1280)
 				    line_color 	3342489
-				    InterObjView 	@39
+				    InterObjView 	@244
 				    height     	1
 				    y_coord    	-89
 				    Nested     	TRUE))
-			    (object InterObjView "Приложение" @44
+			    (object InterObjView "GUI" @249
 				location   	(1268, 225)
 				font       	(object Font
 				    size       	10
@@ -1071,14 +5383,14 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@44
+				    Parent_View 	@249
 				    location   	(1268, 225)
 				    fill_color 	13434879
 				    anchor_loc 	1
 				    nlines     	2
 				    max_width  	282
 				    justify    	0
-				    label      	"Приложение")
+				    label      	"GUI")
 				icon_style 	"Icon"
 				line_color 	3342489
 				fill_color 	13434879
@@ -1089,35 +5401,35 @@
 				icon_width 	0
 				icon_y_offset 	0
 				annotation 	1
-				Focus_Of_Control 	(object Focus_Of_Control "" @45
+				Focus_Of_Control 	(object Focus_Of_Control "" @250
 				    location   	(1268, 440)
 				    line_color 	3342489
-				    InterObjView 	@44
+				    InterObjView 	@249
 				    height     	315
 				    y_coord    	225
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @46
+				Focus_Of_Control 	(object Focus_Of_Control "" @251
 				    location   	(1268, 650)
 				    line_color 	3342489
-				    InterObjView 	@44
+				    InterObjView 	@249
 				    height     	1
 				    y_coord    	-89
 				    Nested     	TRUE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @47
+				Focus_Of_Control 	(object Focus_Of_Control "" @252
 				    location   	(1268, 860)
 				    line_color 	3342489
-				    InterObjView 	@44
+				    InterObjView 	@249
 				    height     	195
 				    y_coord    	105
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @48
+				Focus_Of_Control 	(object Focus_Of_Control "" @253
 				    location   	(1268, 1070)
 				    line_color 	3342489
-				    InterObjView 	@44
+				    InterObjView 	@249
 				    height     	210
 				    y_coord    	120
 				    Nested     	FALSE))
-			    (object InterObjView "База данных" @49
+			    (object InterObjView "База данных" @254
 				location   	(2105, 231)
 				font       	(object Font
 				    size       	10
@@ -1130,7 +5442,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@49
+				    Parent_View 	@254
 				    location   	(2105, 231)
 				    fill_color 	13434879
 				    anchor_loc 	1
@@ -1148,28 +5460,28 @@
 				icon_width 	0
 				icon_y_offset 	0
 				annotation 	1
-				Focus_Of_Control 	(object Focus_Of_Control "" @50
+				Focus_Of_Control 	(object Focus_Of_Control "" @255
 				    location   	(2105, 311)
 				    line_color 	3342489
-				    InterObjView 	@49
+				    InterObjView 	@254
 				    height     	90
 				    y_coord    	0
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @51
+				Focus_Of_Control 	(object Focus_Of_Control "" @256
 				    location   	(2105, 545)
 				    line_color 	3342489
-				    InterObjView 	@49
+				    InterObjView 	@254
 				    height     	195
 				    y_coord    	105
 				    Nested     	FALSE)
-				Focus_Of_Control 	(object Focus_Of_Control "" @52
+				Focus_Of_Control 	(object Focus_Of_Control "" @257
 				    location   	(2105, 1175)
 				    line_color 	3342489
-				    InterObjView 	@49
+				    InterObjView 	@254
 				    height     	90
 				    y_coord    	0
 				    Nested     	FALSE))
-			    (object InterMessView "Выбор вкладки с рассписанием предметов" @53
+			    (object InterMessView "Выбор вкладки с рассписанием предметов" @258
 				location   	(0, 440)
 				font       	(object Font
 				    size       	10
@@ -1181,8 +5493,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @54
-				    Parent_View 	@53
+				label      	(object SegLabel @259
+				    Parent_View 	@258
 				    location   	(800, 396)
 				    font       	(object Font
 					size       	10
@@ -1204,14 +5516,14 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@39
-				supplier   	@44
-				Focus_Src  	@40
-				Focus_Entry 	@45
+				client     	@244
+				supplier   	@249
+				Focus_Src  	@245
+				Focus_Entry 	@250
 				origin     	(349, 440)
 				terminus   	(1252, 440)
 				ordinal    	0)
-			    (object InterMessView "Получить расписание предметов" @55
+			    (object InterMessView "Получить расписание предметов" @260
 				location   	(0, 545)
 				font       	(object Font
 				    size       	10
@@ -1223,8 +5535,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @56
-				    Parent_View 	@55
+				label      	(object SegLabel @261
+				    Parent_View 	@260
 				    location   	(1686, 501)
 				    font       	(object Font
 					size       	10
@@ -1246,14 +5558,14 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@44
-				supplier   	@49
-				Focus_Src  	@45
-				Focus_Entry 	@51
+				client     	@249
+				supplier   	@254
+				Focus_Src  	@250
+				Focus_Entry 	@256
 				origin     	(1283, 545)
 				terminus   	(2089, 545)
 				ordinal    	1)
-			    (object InterMessView "Рассписание предметов " @57
+			    (object InterMessView "Рассписание предметов " @262
 				location   	(0, 650)
 				font       	(object Font
 				    size       	10
@@ -1265,8 +5577,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @58
-				    Parent_View 	@57
+				label      	(object SegLabel @263
+				    Parent_View 	@262
 				    location   	(1687, 606)
 				    font       	(object Font
 					size       	10
@@ -1288,14 +5600,14 @@
 				    height     	45
 				    orientation 	1)
 				line_color 	3342489
-				client     	@49
-				supplier   	@44
-				Focus_Src  	@51
-				Focus_Entry 	@46
+				client     	@254
+				supplier   	@249
+				Focus_Src  	@256
+				Focus_Entry 	@251
 				origin     	(2089, 650)
 				terminus   	(1284, 650)
 				ordinal    	2)
-			    (object InterMessView "Отображение расписания" @59
+			    (object InterMessView "Отображение расписания" @264
 				location   	(0, 755)
 				font       	(object Font
 				    size       	10
@@ -1307,8 +5619,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @60
-				    Parent_View 	@59
+				label      	(object SegLabel @265
+				    Parent_View 	@264
 				    location   	(801, 711)
 				    font       	(object Font
 					size       	10
@@ -1330,14 +5642,14 @@
 				    height     	45
 				    orientation 	1)
 				line_color 	3342489
-				client     	@44
-				supplier   	@39
-				Focus_Src  	@45
-				Focus_Entry 	@41
+				client     	@249
+				supplier   	@244
+				Focus_Src  	@250
+				Focus_Entry 	@246
 				origin     	(1252, 755)
 				terminus   	(350, 755)
 				ordinal    	3)
-			    (object InterMessView "Выбор предмета" @61
+			    (object InterMessView "Выбор предмета" @266
 				location   	(0, 860)
 				font       	(object Font
 				    size       	10
@@ -1349,8 +5661,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @62
-				    Parent_View 	@61
+				label      	(object SegLabel @267
+				    Parent_View 	@266
 				    location   	(800, 816)
 				    font       	(object Font
 					size       	10
@@ -1372,14 +5684,14 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@39
-				supplier   	@44
-				Focus_Src  	@40
-				Focus_Entry 	@47
+				client     	@244
+				supplier   	@249
+				Focus_Src  	@245
+				Focus_Entry 	@252
 				origin     	(349, 860)
 				terminus   	(1252, 860)
 				ordinal    	4)
-			    (object InterMessView "Отображение клавиатуры с циврами" @63
+			    (object InterMessView "Отображение клавиатуры с циврами" @268
 				location   	(0, 965)
 				font       	(object Font
 				    size       	10
@@ -1391,8 +5703,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @64
-				    Parent_View 	@63
+				label      	(object SegLabel @269
+				    Parent_View 	@268
 				    location   	(801, 921)
 				    font       	(object Font
 					size       	10
@@ -1414,14 +5726,14 @@
 				    height     	45
 				    orientation 	1)
 				line_color 	3342489
-				client     	@44
-				supplier   	@39
-				Focus_Src  	@47
-				Focus_Entry 	@42
+				client     	@249
+				supplier   	@244
+				Focus_Src  	@252
+				Focus_Entry 	@247
 				origin     	(1252, 965)
 				terminus   	(350, 965)
 				ordinal    	5)
-			    (object InterMessView "Ввод отметки" @65
+			    (object InterMessView "Ввод отметки" @270
 				location   	(0, 1070)
 				font       	(object Font
 				    size       	10
@@ -1433,8 +5745,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @66
-				    Parent_View 	@65
+				label      	(object SegLabel @271
+				    Parent_View 	@270
 				    location   	(800, 1026)
 				    font       	(object Font
 					size       	10
@@ -1456,14 +5768,14 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@39
-				supplier   	@44
-				Focus_Src  	@40
-				Focus_Entry 	@48
+				client     	@244
+				supplier   	@249
+				Focus_Src  	@245
+				Focus_Entry 	@253
 				origin     	(349, 1070)
 				terminus   	(1252, 1070)
 				ordinal    	6)
-			    (object InterMessView "Сохранение отметки" @67
+			    (object InterMessView "Сохранение отметки" @272
 				location   	(0, 1175)
 				font       	(object Font
 				    size       	10
@@ -1475,8 +5787,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @68
-				    Parent_View 	@67
+				label      	(object SegLabel @273
+				    Parent_View 	@272
 				    location   	(1686, 1131)
 				    font       	(object Font
 					size       	10
@@ -1498,14 +5810,14 @@
 				    height     	45
 				    orientation 	0)
 				line_color 	3342489
-				client     	@44
-				supplier   	@49
-				Focus_Src  	@48
-				Focus_Entry 	@52
+				client     	@249
+				supplier   	@254
+				Focus_Src  	@253
+				Focus_Entry 	@257
 				origin     	(1283, 1175)
 				terminus   	(2089, 1175)
 				ordinal    	7)
-			    (object InterMessView "Обновление вкладки" @69
+			    (object InterMessView "Возвращение к расписанию" @274
 				location   	(0, 1280)
 				font       	(object Font
 				    size       	10
@@ -1517,8 +5829,8 @@
 				    strike     	FALSE
 				    color      	0
 				    default_color 	TRUE)
-				label      	(object SegLabel @70
-				    Parent_View 	@69
+				label      	(object SegLabel @275
+				    Parent_View 	@274
 				    location   	(801, 1236)
 				    font       	(object Font
 					size       	10
@@ -1533,89 +5845,89 @@
 				    quidu      	"580CDAA800AA"
 				    anchor_loc 	1
 				    nlines     	1
-				    max_width  	447
+				    max_width  	588
 				    justify    	0
-				    label      	"Обновление вкладки"
+				    label      	"Возвращение к расписанию"
 				    pctDist    	0.500000
 				    height     	45
 				    orientation 	1)
 				line_color 	3342489
-				client     	@44
-				supplier   	@39
-				Focus_Src  	@48
-				Focus_Entry 	@43
+				client     	@249
+				supplier   	@244
+				Focus_Src  	@253
+				Focus_Entry 	@248
 				origin     	(1252, 1280)
 				terminus   	(350, 1280)
 				ordinal    	8)))))
-	    (object Association "$UNNAMED$0"
+	    (object Association "$UNNAMED$12"
 		quid       	"580CC0350150"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$1"
+		    (object Role "$UNNAMED$13"
 			quid       	"580CC03702AC"
 			supplier   	"Use Case View::Добавить новый предмет"
 			quidu      	"580CC02203CC"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$2"
+		    (object Role "$UNNAMED$14"
 			quid       	"580CC03702AE"
 			supplier   	"Use Case View::Пользователь"
 			quidu      	"580CBFEC025D")))
-	    (object Association "$UNNAMED$3"
+	    (object Association "$UNNAMED$15"
 		quid       	"580CC03D0159"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$4"
+		    (object Role "$UNNAMED$16"
 			quid       	"580CC03F016C"
-			supplier   	"Use Case View::Просмотр расписание звонков"
+			supplier   	"Use Case View::Просмотр расписания звонков"
 			quidu      	"580CC017015F"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$5"
+		    (object Role "$UNNAMED$17"
 			quid       	"580CC03F016E"
 			supplier   	"Use Case View::Пользователь"
 			quidu      	"580CBFEC025D")))
-	    (object Association "$UNNAMED$6"
+	    (object Association "$UNNAMED$18"
 		quid       	"580CC048028E"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$7"
+		    (object Role "$UNNAMED$19"
 			quid       	"580CC04A0322"
 			supplier   	"Use Case View::Просмотр успеваемости по четвертям"
 			quidu      	"580CC01F0153"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$8"
+		    (object Role "$UNNAMED$20"
 			quid       	"580CC04A0324"
 			supplier   	"Use Case View::Пользователь"
 			quidu      	"580CBFEC025D")))
-	    (object Association "$UNNAMED$9"
+	    (object Association "$UNNAMED$21"
 		quid       	"580CC0550374"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$10"
+		    (object Role "$UNNAMED$22"
 			quid       	"580CC0570084"
 			supplier   	"Use Case View::Записать домашнее задание"
 			quidu      	"580CC01C02E4"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$11"
+		    (object Role "$UNNAMED$23"
 			quid       	"580CC0570086"
 			supplier   	"Use Case View::Пользователь"
 			quidu      	"580CBFEC025D")))
-	    (object Association "$UNNAMED$12"
+	    (object Association "$UNNAMED$24"
 		quid       	"580CC05A02CD"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$13"
+		    (object Role "$UNNAMED$25"
 			quid       	"580CC05B0314"
 			supplier   	"Use Case View::Просмотр расписания занятий"
 			quidu      	"580CC014030F"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$14"
+		    (object Role "$UNNAMED$26"
 			quid       	"580CC05B0316"
 			supplier   	"Use Case View::Пользователь"
 			quidu      	"580CBFEC025D")))
-	    (object Association "$UNNAMED$15"
+	    (object Association "$UNNAMED$27"
 		quid       	"580CD37B00C0"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$16"
+		    (object Role "$UNNAMED$28"
 			quid       	"580CD37D006E"
 			supplier   	"Use Case View::Выставление отметки"
 			quidu      	"580CD36400D8"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$17"
+		    (object Role "$UNNAMED$29"
 			quid       	"580CD37D0070"
 			supplier   	"Use Case View::Пользователь"
 			quidu      	"580CBFEC025D"))))
@@ -1629,8 +5941,8 @@
 		origin_x   	1250
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object UseCaseView "Use Case View::Добавить новый предмет" @71
-			location   	(1351, 197)
+		    (object UseCaseView "Use Case View::Добавить новый предмет" @276
+			location   	(1314, 203)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1642,8 +5954,8 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@71
-			    location   	(1351, 335)
+			    Parent_View 	@276
+			    location   	(1314, 341)
 			    anchor_loc 	1
 			    nlines     	2
 			    max_width  	630
@@ -1654,7 +5966,7 @@
 			fill_color 	13434879
 			quidu      	"580CC02203CC"
 			height     	118)
-		    (object UseCaseView "Use Case View::Просмотр расписание звонков" @72
+		    (object UseCaseView "Use Case View::Просмотр расписания звонков" @277
 			location   	(1996, 512)
 			font       	(object Font
 			    size       	10
@@ -1667,19 +5979,19 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@72
+			    Parent_View 	@277
 			    location   	(1996, 650)
 			    anchor_loc 	1
 			    nlines     	2
 			    max_width  	630
 			    justify    	0
-			    label      	"Просмотр расписание звонков")
+			    label      	"Просмотр расписания звонков")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
 			quidu      	"580CC017015F"
 			height     	118)
-		    (object UseCaseView "Use Case View::Просмотр успеваемости по четвертям" @73
+		    (object UseCaseView "Use Case View::Просмотр успеваемости по четвертям" @278
 			location   	(1909, 1075)
 			font       	(object Font
 			    size       	10
@@ -1692,7 +6004,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@73
+			    Parent_View 	@278
 			    location   	(1909, 1213)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1704,7 +6016,7 @@
 			fill_color 	13434879
 			quidu      	"580CC01F0153"
 			height     	118)
-		    (object UseCaseView "Use Case View::Записать домашнее задание" @74
+		    (object UseCaseView "Use Case View::Записать домашнее задание" @279
 			location   	(740, 984)
 			font       	(object Font
 			    size       	10
@@ -1717,7 +6029,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@74
+			    Parent_View 	@279
 			    location   	(740, 1122)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1729,7 +6041,7 @@
 			fill_color 	13434879
 			quidu      	"580CC01C02E4"
 			height     	118)
-		    (object UseCaseView "Use Case View::Просмотр расписания занятий" @75
+		    (object UseCaseView "Use Case View::Просмотр расписания занятий" @280
 			location   	(709, 468)
 			font       	(object Font
 			    size       	10
@@ -1742,7 +6054,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@75
+			    Parent_View 	@280
 			    location   	(709, 606)
 			    anchor_loc 	1
 			    nlines     	2
@@ -1754,7 +6066,32 @@
 			fill_color 	13434879
 			quidu      	"580CC014030F"
 			height     	118)
-		    (object ClassView "Class" "Use Case View::Пользователь" @76
+		    (object UseCaseView "Use Case View::Выставление отметки" @281
+			location   	(1315, 1278)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@281
+			    location   	(1315, 1416)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Выставление отметки")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"580CD36400D8"
+			height     	118)
+		    (object ClassView "Class" "Use Case View::Пользователь" @282
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -1770,11 +6107,11 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@76
+			    Parent_View 	@282
 			    location   	(1321, 882)
 			    anchor_loc 	1
-			    nlines     	1
-			    max_width  	328
+			    nlines     	2
+			    max_width  	325
 			    justify    	0
 			    label      	"Пользователь")
 			icon       	"Actor"
@@ -1783,8 +6120,8 @@
 			quidu      	"580CBFEC025D"
 			annotation 	8
 			autoResize 	TRUE)
-		    (object AssociationViewNew "$UNNAMED$0" @77
-			location   	(1332, 500)
+		    (object AssociationViewNew "$UNNAMED$12" @283
+			location   	(1316, 503)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1799,31 +6136,31 @@
 			line_color 	3342489
 			quidu      	"580CC0350150"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$1" @78
-				Parent_View 	@77
-				location   	(5, -178)
+			    (object RoleView "$UNNAMED$13" @284
+				Parent_View 	@283
+				location   	(-11, -175)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC03702AC"
-				client     	@77
-				supplier   	@71
+				client     	@283
+				supplier   	@276
 				vertices   	(list Points
-				    (1332, 500)
-				    (1340, 360))
+				    (1316, 503)
+				    (1315, 366))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$2" @79
-				Parent_View 	@77
-				location   	(5, -178)
+			    (object RoleView "$UNNAMED$14" @285
+				Parent_View 	@283
+				location   	(-11, -175)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC03702AE"
-				client     	@77
-				supplier   	@76
+				client     	@283
+				supplier   	@282
 				vertices   	(list Points
-				    (1332, 500)
-				    (1324, 640))
+				    (1316, 503)
+				    (1317, 640))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$3" @80
+		    (object AssociationViewNew "$UNNAMED$15" @286
 			location   	(1540, 651)
 			font       	(object Font
 			    size       	10
@@ -1839,31 +6176,31 @@
 			line_color 	3342489
 			quidu      	"580CC03D0159"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$4" @81
-				Parent_View 	@80
+			    (object RoleView "$UNNAMED$16" @287
+				Parent_View 	@286
 				location   	(213, -27)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC03F016C"
-				client     	@80
-				supplier   	@72
+				client     	@286
+				supplier   	@277
 				vertices   	(list Points
 				    (1540, 651)
 				    (1703, 600))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$5" @82
-				Parent_View 	@80
+			    (object RoleView "$UNNAMED$17" @288
+				Parent_View 	@286
 				location   	(213, -27)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC03F016E"
-				client     	@80
-				supplier   	@76
+				client     	@286
+				supplier   	@282
 				vertices   	(list Points
 				    (1540, 651)
 				    (1378, 702))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$6" @83
+		    (object AssociationViewNew "$UNNAMED$18" @289
 			location   	(1595, 885)
 			font       	(object Font
 			    size       	10
@@ -1879,31 +6216,31 @@
 			line_color 	3342489
 			quidu      	"580CC048028E"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$7" @84
-				Parent_View 	@83
+			    (object RoleView "$UNNAMED$19" @290
+				Parent_View 	@289
 				location   	(274, 213)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC04A0322"
-				client     	@83
-				supplier   	@73
+				client     	@289
+				supplier   	@278
 				vertices   	(list Points
 				    (1595, 885)
 				    (1812, 1016))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$8" @85
-				Parent_View 	@83
+			    (object RoleView "$UNNAMED$20" @291
+				Parent_View 	@289
 				location   	(274, 213)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC04A0324"
-				client     	@83
-				supplier   	@76
+				client     	@289
+				supplier   	@282
 				vertices   	(list Points
 				    (1595, 885)
 				    (1378, 755))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$9" @86
+		    (object AssociationViewNew "$UNNAMED$21" @292
 			location   	(1054, 839)
 			font       	(object Font
 			    size       	10
@@ -1919,31 +6256,31 @@
 			line_color 	3342489
 			quidu      	"580CC0550374"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$10" @87
-				Parent_View 	@86
+			    (object RoleView "$UNNAMED$22" @293
+				Parent_View 	@292
 				location   	(-267, 167)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC0570084"
-				client     	@86
-				supplier   	@74
+				client     	@292
+				supplier   	@279
 				vertices   	(list Points
 				    (1054, 839)
 				    (848, 931))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$11" @88
-				Parent_View 	@86
+			    (object RoleView "$UNNAMED$23" @294
+				Parent_View 	@292
 				location   	(-267, 167)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC0570086"
-				client     	@86
-				supplier   	@76
+				client     	@292
+				supplier   	@282
 				vertices   	(list Points
 				    (1054, 839)
 				    (1260, 747))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$12" @89
+		    (object AssociationViewNew "$UNNAMED$24" @295
 			location   	(1130, 641)
 			font       	(object Font
 			    size       	10
@@ -1959,56 +6296,31 @@
 			line_color 	3342489
 			quidu      	"580CC05A02CD"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$13" @90
-				Parent_View 	@89
+			    (object RoleView "$UNNAMED$25" @296
+				Parent_View 	@295
 				location   	(-191, -31)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC05B0314"
-				client     	@89
-				supplier   	@75
+				client     	@295
+				supplier   	@280
 				vertices   	(list Points
 				    (1130, 641)
 				    (1000, 587))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$14" @91
-				Parent_View 	@89
+			    (object RoleView "$UNNAMED$26" @297
+				Parent_View 	@295
 				location   	(-191, -31)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CC05B0316"
-				client     	@89
-				supplier   	@76
+				client     	@295
+				supplier   	@282
 				vertices   	(list Points
 				    (1130, 641)
 				    (1260, 695))
 				line_style 	0)))
-		    (object UseCaseView "Use Case View::Выставление отметки" @92
-			location   	(1315, 1278)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@92
-			    location   	(1315, 1416)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"Выставление отметки")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"580CD36400D8"
-			height     	118)
-		    (object AssociationViewNew "$UNNAMED$15" @93
+		    (object AssociationViewNew "$UNNAMED$27" @298
 			location   	(1316, 1063)
 			font       	(object Font
 			    size       	10
@@ -2024,26 +6336,26 @@
 			line_color 	3342489
 			quidu      	"580CD37B00C0"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$16" @94
-				Parent_View 	@93
+			    (object RoleView "$UNNAMED$28" @299
+				Parent_View 	@298
 				location   	(-5, 341)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CD37D006E"
-				client     	@93
-				supplier   	@92
+				client     	@298
+				supplier   	@281
 				vertices   	(list Points
 				    (1316, 1063)
 				    (1315, 1219))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$17" @95
-				Parent_View 	@93
+			    (object RoleView "$UNNAMED$29" @300
+				Parent_View 	@298
 				location   	(-5, 341)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"580CD37D0070"
-				client     	@93
-				supplier   	@76
+				client     	@298
+				supplier   	@282
 				vertices   	(list Points
 				    (1316, 1063)
 				    (1317, 907))
