@@ -9,8 +9,31 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        set_tab();
+    }
+    public void calendar(View view)
+    {
+        setContentView(R.layout.calendar);
+    }
+
+
+    public void to_main(View view)
+    {
+        setContentView(R.layout.activity_main);
+        set_tab();
+    }
+
+    public void exit(View view)
+    {
+        this.finish();
+    }
+
+
+
+    public void set_tab(){
         setTitle("Tab");
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
 
@@ -31,15 +54,5 @@ public class MainActivity extends AppCompatActivity {
         tabHost.addTab(tabSpec);
 
         tabHost.setCurrentTab(0);
-
-    }
-    public void calendar(View view)
-    {
-        setContentView(R.layout.calendar);
-    }
-
-    public void to_main(View view)
-    {
-        setContentView(R.layout.activity_main);
     }
 }
