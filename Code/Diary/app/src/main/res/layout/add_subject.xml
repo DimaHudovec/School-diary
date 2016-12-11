@@ -9,10 +9,17 @@
         android:entries="@array/sub_list"
         android:id="@+id/spinner" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText3" />
+
     <Button
         android:text="Сохранить"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button4"
-        android:onClick="to_main" />
+        android:onClick="add_subj_to_db" />
 </LinearLayout>
