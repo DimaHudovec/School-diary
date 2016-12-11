@@ -1,6 +1,7 @@
 package com.example.hudov.diary;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TabHost;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
@@ -31,6 +33,66 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         set_tab();
         dbHelper = new DBHelper(this);
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date data = new Date();
+        data.getDate();
+        selectedDate = sdf.format(data);
+        Log.d("mLog",selectedDate);
+        Cursor cursor = database.query(DBHelper.TABLE_NAME,null,null,null,null,null,null);
+        if(cursor.moveToFirst())
+        {
+            int dataIndex = cursor.getColumnIndex(DBHelper.KEY_DATA);
+            int numIndex = cursor.getColumnIndex(DBHelper.KEY_NUM);
+            int subIndex = cursor.getColumnIndex(DBHelper.KEY_SUBJECT);
+            do{
+                Log.d("mLog","Number" + cursor.getInt(numIndex) + "Subject" + cursor.getString(subIndex) + "Data" + cursor.getString(dataIndex));
+                String str = new String();
+                str = cursor.getString(dataIndex);
+                if(selectedDate.equalsIgnoreCase(str)){
+                    switch (cursor.getInt(numIndex)) {
+                        case(int)1 :
+                            TextView setText1 = (TextView) findViewById(R.id.textView15);
+                            setText1.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)2 :
+                            TextView setText2 = (TextView) findViewById(R.id.textView17);
+                            setText2.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)3 :
+                            TextView setText3 = (TextView) findViewById(R.id.textView19);
+                            setText3.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)4 :
+                            TextView setText4 = (TextView) findViewById(R.id.textView21);
+                            setText4.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)5 :
+                            TextView setText5 = (TextView) findViewById(R.id.textView);
+                            setText5.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)6 :
+                            TextView setText6 = (TextView) findViewById(R.id.textView24);
+                            setText6.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)7 :
+                            TextView setText7 = (TextView) findViewById(R.id.textView26);
+                            setText7.setText(cursor.getString(subIndex));
+                            break;
+                        default:
+                            Log.d("mLog","Error");
+
+                    }
+
+                }
+
+            }while(cursor.moveToNext());
+        }
+
+        cursor.close();
+
+
     }
     public void calendar(View view)
     {
@@ -44,23 +106,73 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         selectedDate = sdf.format(new Date(calen.getDate()));
         Log.d("mLog","Data" + selectedDate);
+
         setContentView(R.layout.activity_main);
         set_tab();
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        Cursor cursor = database.query(DBHelper.TABLE_NAME,null,null,null,null,null,null);
+        if(cursor.moveToFirst())
+        {
+            int dataIndex = cursor.getColumnIndex(DBHelper.KEY_DATA);
+            int numIndex = cursor.getColumnIndex(DBHelper.KEY_NUM);
+            int subIndex = cursor.getColumnIndex(DBHelper.KEY_SUBJECT);
+            do{
+                Log.d("mLog","Number" + cursor.getInt(numIndex) + "Subject" + cursor.getString(subIndex) + "Data" + cursor.getString(dataIndex));
+                String str = new String();
+                str = cursor.getString(dataIndex);
+                if(selectedDate.equalsIgnoreCase(str)){
+                    switch (cursor.getInt(numIndex)) {
+                        case(int)1 :
+                            TextView setText1 = (TextView) findViewById(R.id.textView15);
+                            setText1.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)2 :
+                            TextView setText2 = (TextView) findViewById(R.id.textView17);
+                            setText2.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)3 :
+                            TextView setText3 = (TextView) findViewById(R.id.textView19);
+                            setText3.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)4 :
+                            TextView setText4 = (TextView) findViewById(R.id.textView21);
+                            setText4.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)5 :
+                            TextView setText5 = (TextView) findViewById(R.id.textView);
+                            setText5.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)6 :
+                            TextView setText6 = (TextView) findViewById(R.id.textView24);
+                            setText6.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)7 :
+                            TextView setText7 = (TextView) findViewById(R.id.textView26);
+                            setText7.setText(cursor.getString(subIndex));
+                            break;
+                        default:
+                            Log.d("mLog","Error");
+
+                    }
+
+                }
+
+            }while(cursor.moveToNext());
+        }
+
+        cursor.close();
     }
 
     public void add_subj_to_db(View view)
     {
-        Log.d("mLog","Error");
         SQLiteDatabase database = dbHelper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        Log.d("mLog","Error");
         EditText etNum = (EditText) findViewById(R.id.editText3);
         String num = etNum.getText().toString();
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         String selected = spinner.getSelectedItem().toString();
         Toast.makeText(getApplicationContext(), selected, Toast.LENGTH_SHORT).show();
-        Log.d("mLog","Error");
 
 
         contentValues.put(DBHelper.KEY_DATA,selectedDate);
@@ -68,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
         contentValues.put(DBHelper.KEY_SUBJECT,selected);
 
         database.insert(DBHelper.TABLE_NAME,null,contentValues);
-        Log.d("mLog","Error");
         setContentView(R.layout.activity_main);
         set_tab();
     }
