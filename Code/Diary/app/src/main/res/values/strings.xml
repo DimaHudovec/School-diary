@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Diary</string>
+    <string-array name="sub_list">
+        <item>Математика</item>
+        <item>Физика</item>
+        <item>Русский язык</item>
+        <item>Информатика</item>
+    </string-array>
 </resources>

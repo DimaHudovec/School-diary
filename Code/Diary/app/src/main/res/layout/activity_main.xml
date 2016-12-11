@@ -35,7 +35,7 @@ android:layout_height="match_parent"
                         android:layout_height="42dp"
                         android:id="@+id/imageButton2" android:layout_gravity="top|right"
                         android:background="@android:drawable/ic_menu_today" android:onClick="calendar"/>
-                    <TableLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    <TableLayout android:layout_width="match_parent" android:layout_height="407dp"
                         android:layout_above="@+id/button2" android:layout_toStartOf="@+id/button"
                         android:layout_alignEnd="@+id/button" android:layout_below="@+id/imageButton">
                         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
@@ -146,11 +146,14 @@ android:layout_height="match_parent"
                                 android:id="@+id/checkBox14" android:layout_column="4" android:checked="false"/>
                         </TableRow>
                     </TableLayout>
+
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="Добавить"
-                        android:id="@+id/button3" android:layout_gravity="center_horizontal"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button3"
+                        android:onClick="add_sub" />
+
                 </LinearLayout>
 
                 <LinearLayout

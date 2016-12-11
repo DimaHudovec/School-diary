@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TabHost;
 import java.util.Date;
@@ -11,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+    Button btnAdd;
+    String selectedDate;
 
 
     @Override
@@ -28,17 +31,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void to_main(View view)
     {
-
-        CalendarView calen = (CalendarView) findViewById(R.id.calendarView);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String selectedDate = sdf.format(new Date(calen.getDate()));
-        Log.d("mLog","Data" + selectedDate);
         setContentView(R.layout.activity_main);
         set_tab();
-
-
     }
 
+
+    public void add_sub(View view)
+    {
+        setContentView(R.layout.add_subject);
+    }
+
+    public void get_data(View view)
+    {
+        CalendarView calen = (CalendarView) findViewById(R.id.calendarView);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        selectedDate = sdf.format(new Date(calen.getDate()));
+        Log.d("mLog","Data" + selectedDate);
+
+    }
     public void exit(View view)
     {
         this.finish();
