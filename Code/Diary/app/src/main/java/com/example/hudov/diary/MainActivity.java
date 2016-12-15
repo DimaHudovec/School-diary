@@ -33,64 +33,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         set_tab();
         dbHelper = new DBHelper(this);
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date data = new Date();
         data.getDate();
         selectedDate = sdf.format(data);
         Log.d("mLog",selectedDate);
-        Cursor cursor = database.query(DBHelper.TABLE_NAME,null,null,null,null,null,null);
-        if(cursor.moveToFirst())
-        {
-            int dataIndex = cursor.getColumnIndex(DBHelper.KEY_DATA);
-            int numIndex = cursor.getColumnIndex(DBHelper.KEY_NUM);
-            int subIndex = cursor.getColumnIndex(DBHelper.KEY_SUBJECT);
-            do{
-                Log.d("mLog","Number" + cursor.getInt(numIndex) + "Subject" + cursor.getString(subIndex) + "Data" + cursor.getString(dataIndex));
-                String str = new String();
-                str = cursor.getString(dataIndex);
-                if(selectedDate.equalsIgnoreCase(str)){
-                    switch (cursor.getInt(numIndex)) {
-                        case(int)1 :
-                            TextView setText1 = (TextView) findViewById(R.id.textView15);
-                            setText1.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)2 :
-                            TextView setText2 = (TextView) findViewById(R.id.textView17);
-                            setText2.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)3 :
-                            TextView setText3 = (TextView) findViewById(R.id.textView19);
-                            setText3.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)4 :
-                            TextView setText4 = (TextView) findViewById(R.id.textView21);
-                            setText4.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)5 :
-                            TextView setText5 = (TextView) findViewById(R.id.textView);
-                            setText5.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)6 :
-                            TextView setText6 = (TextView) findViewById(R.id.textView24);
-                            setText6.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)7 :
-                            TextView setText7 = (TextView) findViewById(R.id.textView26);
-                            setText7.setText(cursor.getString(subIndex));
-                            break;
-                        default:
-                            Log.d("mLog","Error");
+        update_shedule();
 
-                    }
-
-                }
-
-            }while(cursor.moveToNext());
-        }
-
-        cursor.close();
 
 
     }
@@ -102,65 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void to_main(View view)
     {
-        CalendarView calen = (CalendarView) findViewById(R.id.calendarView);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        selectedDate = sdf.format(new Date(calen.getDate()));
-        Log.d("mLog","Data" + selectedDate);
+        get_data();
 
         setContentView(R.layout.activity_main);
         set_tab();
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-        Cursor cursor = database.query(DBHelper.TABLE_NAME,null,null,null,null,null,null);
-        if(cursor.moveToFirst())
-        {
-            int dataIndex = cursor.getColumnIndex(DBHelper.KEY_DATA);
-            int numIndex = cursor.getColumnIndex(DBHelper.KEY_NUM);
-            int subIndex = cursor.getColumnIndex(DBHelper.KEY_SUBJECT);
-            do{
-                Log.d("mLog","Number" + cursor.getInt(numIndex) + "Subject" + cursor.getString(subIndex) + "Data" + cursor.getString(dataIndex));
-                String str = new String();
-                str = cursor.getString(dataIndex);
-                if(selectedDate.equalsIgnoreCase(str)){
-                    switch (cursor.getInt(numIndex)) {
-                        case(int)1 :
-                            TextView setText1 = (TextView) findViewById(R.id.textView15);
-                            setText1.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)2 :
-                            TextView setText2 = (TextView) findViewById(R.id.textView17);
-                            setText2.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)3 :
-                            TextView setText3 = (TextView) findViewById(R.id.textView19);
-                            setText3.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)4 :
-                            TextView setText4 = (TextView) findViewById(R.id.textView21);
-                            setText4.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)5 :
-                            TextView setText5 = (TextView) findViewById(R.id.textView);
-                            setText5.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)6 :
-                            TextView setText6 = (TextView) findViewById(R.id.textView24);
-                            setText6.setText(cursor.getString(subIndex));
-                            break;
-                        case(int)7 :
-                            TextView setText7 = (TextView) findViewById(R.id.textView26);
-                            setText7.setText(cursor.getString(subIndex));
-                            break;
-                        default:
-                            Log.d("mLog","Error");
-
-                    }
-
-                }
-
-            }while(cursor.moveToNext());
-        }
-
-        cursor.close();
+        update_shedule();
     }
 
     public void add_subj_to_db(View view)
@@ -226,6 +121,62 @@ public class MainActivity extends AppCompatActivity {
         tabHost.addTab(tabSpec);
 
         tabHost.setCurrentTab(0);
+    }
+
+    public void update_shedule()
+    {
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        Cursor cursor = database.query(DBHelper.TABLE_NAME,null,null,null,null,null,null);
+        if(cursor.moveToFirst())
+        {
+            int dataIndex = cursor.getColumnIndex(DBHelper.KEY_DATA);
+            int numIndex = cursor.getColumnIndex(DBHelper.KEY_NUM);
+            int subIndex = cursor.getColumnIndex(DBHelper.KEY_SUBJECT);
+            do{
+                Log.d("mLog","Number" + cursor.getInt(numIndex) + "Subject" + cursor.getString(subIndex) + "Data" + cursor.getString(dataIndex));
+                String str = new String();
+                str = cursor.getString(dataIndex);
+                if(selectedDate.equalsIgnoreCase(str)){
+                    switch (cursor.getInt(numIndex)) {
+                        case(int)1 :
+                            TextView setText1 = (TextView) findViewById(R.id.textView15);
+                            setText1.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)2 :
+                            TextView setText2 = (TextView) findViewById(R.id.textView17);
+                            setText2.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)3 :
+                            TextView setText3 = (TextView) findViewById(R.id.textView19);
+                            setText3.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)4 :
+                            TextView setText4 = (TextView) findViewById(R.id.textView21);
+                            setText4.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)5 :
+                            TextView setText5 = (TextView) findViewById(R.id.textView);
+                            setText5.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)6 :
+                            TextView setText6 = (TextView) findViewById(R.id.textView24);
+                            setText6.setText(cursor.getString(subIndex));
+                            break;
+                        case(int)7 :
+                            TextView setText7 = (TextView) findViewById(R.id.textView26);
+                            setText7.setText(cursor.getString(subIndex));
+                            break;
+                        default:
+                            Log.d("mLog","Error");
+
+                    }
+
+                }
+
+            }while(cursor.moveToNext());
+        }
+
+        cursor.close();
     }
 
 }
